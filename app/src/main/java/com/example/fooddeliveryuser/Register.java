@@ -34,7 +34,7 @@ public class Register extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextPassword = findViewById(R.id.editTextPassword);
-        buttonRegister = findViewById(R.id.buttonRegister);
+        buttonRegister = findViewById(R.id.buttonLogin);
 
         // Set onClickListener for register button
         buttonRegister.setOnClickListener(v -> registerUser());

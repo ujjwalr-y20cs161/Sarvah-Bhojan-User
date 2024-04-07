@@ -1,6 +1,7 @@
 package com.example.fooddeliveryuser;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,9 +38,24 @@ public class LoginActivity extends AppCompatActivity {
         textViewLoginMessage = findViewById(R.id.loginText);
 
         // Set onClickListener for buttons
-        buttonLogin.setOnClickListener(v -> login());
-        buttonForgotPassword.setOnClickListener(v -> forgotPassword());
-        buttonRegister.setOnClickListener(v -> register());
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login();
+            }
+        });
+        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                forgotPassword();
+            }
+        });
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                register();
+            }
+        });
     }
 
     // Method to handle login action
