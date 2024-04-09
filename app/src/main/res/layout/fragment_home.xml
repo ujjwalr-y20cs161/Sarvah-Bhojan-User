@@ -26,6 +26,8 @@
                 android:layout_margin="@dimen/normal_margin"
                 />
 
+            
+
             <LinearLayout
                 android:layout_margin="@dimen/normal_margin"
                 android:id="@+id/unavailableCard"
