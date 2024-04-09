@@ -1,6 +1,8 @@
 package com.example.fooddeliveryuser;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,7 +39,13 @@ public class Register extends AppCompatActivity {
         buttonRegister = findViewById(R.id.buttonLogin);
 
         // Set onClickListener for register button
-        buttonRegister.setOnClickListener(v -> registerUser());
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerUser();
+                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+            }
+        });
     }
 
     private void registerUser() {
