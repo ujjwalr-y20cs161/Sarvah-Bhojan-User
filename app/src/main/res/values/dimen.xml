@@ -9,4 +9,7 @@
     <dimen name="normal_margin">12dp</dimen>
     <dimen name="small_margin">6dp</dimen>
     <dimen name="large_margin">24dp</dimen>
+    <dimen name="small_text_limiter">150dp</dimen>
+    <dimen name="small_image">24dp</dimen>
+    <dimen name="medium_image">36sp</dimen>
 </resources>

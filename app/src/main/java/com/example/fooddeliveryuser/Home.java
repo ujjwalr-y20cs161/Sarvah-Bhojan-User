@@ -65,9 +65,9 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Drawable drawable = AppCompatResources.getDrawable(getContext(),R.drawable.sun);
+        Drawable drawable = AppCompatResources.getDrawable(getContext(),R.drawable.address_marker);
         binding = FragmentHomeBinding.inflate(inflater,container,false);
-        binding.userGreet.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
+        binding.addressMarkerIcon.setImageDrawable(drawable);
         return binding.getRoot();
     }
 }
