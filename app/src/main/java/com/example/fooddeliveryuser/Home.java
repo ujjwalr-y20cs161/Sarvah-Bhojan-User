@@ -3,12 +3,17 @@ package com.example.fooddeliveryuser;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.fooddeliveryuser.databinding.FragmentHomeBinding;
 
@@ -28,6 +33,8 @@ public class Home extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ShimmerFrameLayout shimmerFrameLayout;
 
     public Home() {
         // Required empty public constructor
@@ -55,6 +62,7 @@ public class Home extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -64,10 +72,31 @@ public class Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+
         Drawable drawable = AppCompatResources.getDrawable(getContext(),R.drawable.address_marker);
+
+
+
+
+
+
+        // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater,container,false);
         binding.addressMarkerIcon.setImageDrawable(drawable);
+        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        shimmerFrameLayout = view.findViewById(R.id.shimmer_load);
+        shimmerFrameLayout.startShimmer();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                binding.shimmerLoad.setVisibility(View.GONE);
+                binding.results.setVisibility(View.VISIBLE);
+            }
+        },5000);
+
+
         return binding.getRoot();
     }
 }

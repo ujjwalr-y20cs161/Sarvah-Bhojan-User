@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="normal_text">20sp</dimen>
     <dimen name="medium_text">24sp</dimen>
     <dimen name="small_text">16sp</dimen>
+    <dimen name="xs">12sp</dimen>
     <dimen name="x_small_text">8sp</dimen>
     <dimen name="large_text">36sp</dimen>
     <dimen name="x_large_text">48sp</dimen>
+
     <dimen name="normal_margin">12dp</dimen>
     <dimen name="small_margin">6dp</dimen>
     <dimen name="large_margin">24dp</dimen>
+
+    <dimen name="x_small_placeholder">50dp</dimen>
+    <dimen name="x_small_text_limiter">100dp</dimen>
     <dimen name="small_text_limiter">150dp</dimen>
+
     <dimen name="small_image">24dp</dimen>
-    <dimen name="medium_image">36sp</dimen>
+    <dimen name="medium_image">36dp</dimen>
+    <dimen name="large_image">48dp</dimen>
+    <dimen name="x_large_image">64dp</dimen>
+
 </resources>

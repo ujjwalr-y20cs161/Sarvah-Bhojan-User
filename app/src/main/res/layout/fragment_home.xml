@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hi, Alex!"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat"
                 android:textSize="@dimen/medium_text"
                 android:drawablePadding="@dimen/small_margin"
                 android:layout_gravity="center"
@@ -79,55 +79,113 @@
                 />
 
 
+
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <com.google.android.material.search.SearchBar
-                    android:id="@+id/searchBar"
+                    android:id="@+id/search_bar"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     style="@style/Widget.Material3.SearchBar.Outlined"
-                    android:layout_height="wrap_content"
-                    android:text="Search Restaurants"
-                    android:textAppearance="@font/montserrat"
-                    app:titleTextAppearance="@font/montserrat"
-                    android:layout_margin="0dp"/>
+                    android:hint="Search your Favorite Restaurants" />
 
-
-                <RadioGroup
+                <com.google.android.material.search.SearchView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Vegtarian"
-                        android:drawableLeft="@drawable/veg"
-                        style="@style/Widget.Material3.CompoundButton.RadioButton"
-                        bub 
+                    android:layout_height="match_parent"
+                    style="@style/Widget.Material3.SearchView"
+                    app:backgroundTint="?attr/colorSurface"
+                    android:hint="Search your Favorite Restaurants"
+                    app:layout_anchor="@id/search_bar">
 
-                </RadioGroup>
+                    <LinearLayout
+                        android:layout_margin="@dimen/normal_margin"
+                        android:id="@+id/unavailableCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/normal_margin"
+                            android:src="@drawable/unavailable"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:textSize="@dimen/medium_text"
+                            android:layout_margin="@dimen/normal_margin"
+                            android:textColor="@color/material_dynamic_neutral60"
+                            android:text="Restaurants Currently Unavailable"/>
+                    </LinearLayout>
+                    <!-- Search suggestions/results go here (ScrollView, RecyclerView, etc.). -->
 
+                </com.google.android.material.search.SearchView>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
             <LinearLayout
-                android:layout_margin="@dimen/normal_margin"
-                android:id="@+id/unavailableCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/normal_margin"
-                    android:src="@drawable/unavailable"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textSize="@dimen/medium_text"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Popular Restaurants"
+                    android:textSize="@dimen/normal_text"
                     android:layout_margin="@dimen/normal_margin"
-                    android:textColor="@color/material_dynamic_neutral60"
-                    android:text="Restaurants Currently Unavailable"/>
+                    />
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:shimmer_auto_start="true"
+                    android:id="@+id/shimmer_load">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <include
+                                layout="@layout/restaurant_load"/>
+
+                            <include
+                                layout="@layout/restaurant_load"/>
+
+                            <include
+                                layout="@layout/restaurant_load"/>
+                            <include
+                                layout="@layout/restaurant_load"/>
+                            <include
+                                layout="@layout/restaurant_load"/>
+                        </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:id="@+id/results">
+
+                        <include layout="@layout/restaurant_card" />
+
+                        <include layout="@layout/restaurant_card" />
+
+                        <include layout="@layout/restaurant_card" />
+
+                        <include layout="@layout/restaurant_card" />
+
+                    </LinearLayout>
+
             </LinearLayout>
+
+
 
         </LinearLayout>
 
