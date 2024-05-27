@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/small_margin"
+    android:background="@drawable/rounded_large">
+
+    <LinearLayout
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/medium_image"
+                android:layout_height="@dimen/medium_image"
+                android:src="@color/quantum_pink"
+                app:shapeAppearanceOverlay="@style/circle"/>
+
+        <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_width="wrap_content"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/addressLabel"
+                android:layout_width="@dimen/small_text_limiter"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Address 1"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/addressDetails"
+                android:layout_width="@dimen/small_text_limiter"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/x_small_text"
+                android:fontFamily="@font/montserrat"
+                android:text="Address 1"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="@dimen/medium_image"
+            android:layout_height="@dimen/medium_image"
+            android:backgroundTint="@color/transparent0"
+            android:layout_margin="@dimen/small_margin"
+            android:src="@drawable/baseline_edit_24" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

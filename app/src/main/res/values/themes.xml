@@ -8,9 +8,14 @@
 
     <style name="rounded_corner">
         <item name="cornerFamily">rounded</item>
-        <item name="android:background">@drawable/rounded_rect_small</item>
         <item name="cornerSize">@dimen/normal_margin</item>
     </style>
+
+    <style name="circle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/large_text</item>
+    </style>
+
 
     <style name="Theme.FoodDeliveryUser" parent="Base.Theme.FoodDeliveryUser" />
 </resources>

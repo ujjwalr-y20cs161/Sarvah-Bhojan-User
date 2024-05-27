@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AddressPicker">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center_vertical"
+       android:background="?attr/colorSurfaceContainerHigh"
+       android:orientation="horizontal">
+
+       <ImageButton
+           android:id="@+id/BackButton"
+           android:layout_margin="@dimen/large_margin"
+           android:layout_width="@dimen/small_image"
+           android:layout_height="@dimen/small_image"
+           android:src="@drawable/back_arrow"
+           android:backgroundTint="@color/transparent0"/>
+
+       <TextView
+           android:id="@+id/addressPickerLabel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="@dimen/large_margin"
+           android:fontFamily="@font/montserrat_semibold"
+           android:text="Address Catalogue"
+           android:gravity="center"
+           android:textSize="@dimen/normal_text"/>
+
+
+
+
+
+   </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Current Address"
+                android:textSize="@dimen/normal_text"
+                android:id="@+id/CurrentLocationPicker"/>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/currentAddressLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true">
+                <include
+                    layout="@layout/address_load"/>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
+                android:background="@drawable/rounded_large"
+                android:padding="@dimen/normal_margin"
+                android:id="@+id/NoneSelected">
+
+                <ImageView
+                    android:layout_width="@dimen/large_image"
+                    android:layout_height="@dimen/large_image"
+                    android:src="@drawable/unavailable"
+                    android:id="@+id/unavailableImage"/>
+                <TextView
+                    android:id="@+id/NoneSelectedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="@dimen/small_text"
+                    android:text="None Selected"
+                    android:textColor="?attr/colorControlNormal"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_margin="@dimen/normal_margin"
+                android:id="@+id/AddressCatalouge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Available Addresses"
+                android:textSize="@dimen/normal_text"/>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/AddressCatalougeLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <include
+                        layout="@layout/address_load"/>
+                    <include
+                        layout="@layout/address_load"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                />
+
+            <include layout="@layout/address_card"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
+                android:background="@drawable/rounded_large"
+                android:padding="@dimen/normal_margin"
+                android:id="@+id/NoCatalogue">
+
+                <ImageView
+                    android:layout_width="@dimen/large_image"
+                    android:layout_height="@dimen/large_image"
+                    android:src="@drawable/unavailable"
+                    android:id="@+id/NoCatalogueImage"/>
+                <TextView
+                    android:id="@+id/NoCatalogueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="@dimen/small_text"
+                    android:text="No Addresses Available"
+                    android:textColor="?attr/colorControlNormal"/>
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="Add an Address"
+                android:layout_gravity="center"
+                android:textSize="@dimen/small_text"
+                android:drawableLeft="@drawable/baseline_add_24" />
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.FoodDeliveryUser"
         tools:targetApi="31">
         <activity
+            android:name=".AddressPicker"
+            android:exported="false" />
+        <activity
             android:name=".MapActivity"
             android:exported="false" />
         <activity
@@ -38,7 +41,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDsg3mYuXulpDyShyK1bMtvTN3Zlf0EIOw" />

@@ -1,5 +1,6 @@
 package com.example.fooddeliveryuser;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -36,6 +37,7 @@ public class Home extends Fragment {
 
     private ShimmerFrameLayout shimmerFrameLayout;
 
+
     public Home() {
         // Required empty public constructor
     }
@@ -62,7 +64,6 @@ public class Home extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -77,16 +78,23 @@ public class Home extends Fragment {
         Drawable drawable = AppCompatResources.getDrawable(getContext(),R.drawable.address_marker);
 
 
-
-
-
-
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater,container,false);
         binding.addressMarkerIcon.setImageDrawable(drawable);
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         shimmerFrameLayout = view.findViewById(R.id.shimmer_load);
         shimmerFrameLayout.startShimmer();
+
+        binding.AdddressLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),AddressPicker.class));
+            }
+        });
+
+        binding.addressLabel.setOnClickListener(v->{
+            startActivity(new Intent(getContext(),AddressPicker.class));
+        });
 
         new Handler().postDelayed(new Runnable() {
             @Override
