@@ -58,11 +58,14 @@
                 android:textSize="@dimen/normal_text"
                 android:id="@+id/CurrentLocationPicker"/>
 
+            <include android:id="@+id/CurrentAddress" layout="@layout/address_card"/>
+
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/currentAddressLoad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:shimmer_auto_start="true">
+
                 <include
                     layout="@layout/address_load"/>
             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -126,7 +129,7 @@
                 android:layout_margin="@dimen/normal_margin"
                 />
 
-            <include layout="@layout/address_card"/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
