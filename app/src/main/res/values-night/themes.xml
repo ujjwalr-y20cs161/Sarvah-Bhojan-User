@@ -1,8 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodDeliveryUser" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="android:windowLightStatusBar">true</item>
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/quantum_pinkA100</item>
+        <item name="colorSecondary">@color/quantum_purpleA100</item>
+        <item name="statusBarBackground">?attr/colorSurfaceContainerHigh</item>
+        <item name="statusBarForeground">?attr/colorOnSurface</item>
     </style>
+
+    <style name="rounded_corner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/normal_margin</item>
+    </style>
+
+    <style name="circle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/large_text</item>
+    </style>
+
+
+    <style name="Theme.FoodDeliveryUser" parent="Base.Theme.FoodDeliveryUser" />
 </resources>

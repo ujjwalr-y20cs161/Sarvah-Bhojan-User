@@ -2,8 +2,11 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodDeliveryUser" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/quantum_pink</item>
+        <item name="colorSecondary">#7A00F3</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="statusBarBackground">?attr/colorSurfaceContainerHigh</item>
+        <item name="statusBarForeground">?attr/colorOnSurface</item>
     </style>
 
     <style name="rounded_corner">
@@ -14,11 +17,6 @@
     <style name="circle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/large_text</item>
-    </style>
-
-    <style name="sphere">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerRadius">@dimen/normal_margin</item>
     </style>
 
 
