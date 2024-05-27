@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/small_margin"
+    android:background="@drawable/rounded_large">
+
+    <LinearLayout
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        >
+        <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+            android:layout_width="@dimen/medium_image"
+            android:layout_height="@dimen/medium_image"
+            android:layout_margin="@dimen/small_margin"
+            app:cardCornerRadius="@dimen/large_margin"
+            android:backgroundTint="@color/quantum_grey"/>
+
+        <LinearLayout
+            android:layout_margin="@dimen/small_margin"
+            android:layout_width="wrap_content"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/RestaurantLabel"
+                android:layout_width="@dimen/normal_text_limiter"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text"
+                android:fontFamily="@font/montserrat_semibold"
+                android:background="@color/quantum_grey"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/OrderNumber"
+                android:layout_width="@dimen/small_text_limiter"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/xs"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@color/quantum_grey"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <View
+                android:id="@+id/orderItems"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/large_text"
+                android:background="@color/quantum_grey"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/small_margin"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/CurrentOrderNavigate"
+            android:layout_width="@dimen/medium_image"
+            android:layout_height="@dimen/medium_image"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/quantum_grey"
+            android:layout_margin="@dimen/small_margin" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="@dimen/normal_margin">
+
+        <TextView
+            android:id="@+id/orderStatus"
+            android:layout_width="@dimen/x_small_text_limiter"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:background="@color/quantum_grey"
+            android:drawablePadding="@dimen/small_margin"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"/>
+
+        <TextView
+            android:id="@+id/orderDistance"
+            android:layout_width="@dimen/x_small_text_limiter"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:background="@color/quantum_grey"
+            android:drawablePadding="@dimen/small_margin"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"/>
+
+        <TextView
+            android:layout_width="@dimen/x_small_text_limiter"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:background="@color/quantum_grey"
+            android:drawablePadding="@dimen/small_margin"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"/>
+
+
+    </LinearLayout>
+</LinearLayout>

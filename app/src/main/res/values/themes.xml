@@ -16,6 +16,11 @@
         <item name="cornerSize">@dimen/large_text</item>
     </style>
 
+    <style name="sphere">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/normal_margin</item>
+    </style>
+
 
     <style name="Theme.FoodDeliveryUser" parent="Base.Theme.FoodDeliveryUser" />
 </resources>

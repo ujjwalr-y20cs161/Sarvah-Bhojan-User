@@ -16,6 +16,7 @@
     <dimen name="x_small_placeholder">50dp</dimen>
     <dimen name="x_small_text_limiter">100dp</dimen>
     <dimen name="small_text_limiter">150dp</dimen>
+    <dimen name="normal_text_limiter">250dp</dimen>
 
     <dimen name="small_image">24dp</dimen>
     <dimen name="medium_image">36dp</dimen>

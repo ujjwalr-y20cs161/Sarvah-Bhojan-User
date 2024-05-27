@@ -1,38 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/material_dynamic_primary70"
     tools:context=".Orders">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/MyLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not Selected"
-        />
-
-    <Button
-        android:id="@+id/BtnPickLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000"
-        android:text="Pick Location"
-        android:textColor="#fff"
-        android:layout_margin="20dp"
-        android:textStyle="bold"/>
-
-    <fragment
-        android:id="@+id/place_autocomplete_fragment"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_margin="@dimen/normal_margin"
-        android:hint="Enter a location"/>
+        android:layout_marginTop="@dimen/large_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Orders on the way"
+            android:textSize="@dimen/normal_text"
+            android:id="@+id/CurrentOrders"/>
 
 
-</LinearLayout>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/currentOrdersLoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true">
+
+            <include
+                layout="@layout/order_load"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <include layout="@layout/current_order_card"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/small_margin"
+            android:gravity="center"
+            android:background="@drawable/rounded_large"
+            android:padding="@dimen/normal_margin"
+            android:id="@+id/NoCurrentOrders">
+
+            <ImageView
+                android:layout_width="@dimen/large_image"
+                android:layout_height="@dimen/large_image"
+                android:src="@drawable/unavailable"
+                android:id="@+id/unavailableImage"/>
+            <TextView
+                android:id="@+id/NoneSelectedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:text="No Orders"
+                android:textColor="?attr/colorControlNormal"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_margin="@dimen/normal_margin"
+            android:id="@+id/previousOrderText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Previous Orders"
+            android:textSize="@dimen/normal_text"/>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/PreviousOrderLoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include
+                    layout="@layout/order_load"/>
+                <include
+                    layout="@layout/order_load"/>
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <include layout="@layout/previous_order_card"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/previousOrderRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/small_margin"
+            android:gravity="center"
+            android:background="@drawable/rounded_large"
+            android:padding="@dimen/normal_margin"
+            android:id="@+id/NoPreviousOrders">
+
+            <ImageView
+                android:layout_width="@dimen/large_image"
+                android:layout_height="@dimen/large_image"
+                android:src="@drawable/unavailable"
+                android:id="@+id/NoPreviousOrdersImage"/>
+            <TextView
+                android:id="@+id/NoPreviousOrdersText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:text="You haven't made any orders yet!"
+                android:textColor="?attr/colorControlNormal"/>
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/large_margin"
+            android:layout_margin="@dimen/large_margin"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
