@@ -29,6 +29,8 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case "Account" : placeFragment(new Account());
                     break;
+                case "Cart": placeFragment(new CartFragment());
+                break;
                 default: placeFragment(new Home());
             }
 
