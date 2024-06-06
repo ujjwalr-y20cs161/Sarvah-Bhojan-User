@@ -2,8 +2,6 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodDeliveryUser" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/quantum_pink</item>
-        <item name="colorSecondary">#7A00F3</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="statusBarBackground">?attr/colorSurfaceContainerHigh</item>
         <item name="statusBarForeground">?attr/colorOnSurface</item>
