@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:layout_margin="@dimen/small_margin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -18,7 +19,6 @@
             <LinearLayout
                 android:id="@+id/AdddressLayout"
                 android:layout_width="match_parent"
-                android:padding="@dimen/normal_margin"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -136,12 +136,13 @@
             android:orientation="vertical">
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Popular Restaurants"
-                android:textSize="@dimen/normal_text"
-                android:layout_margin="@dimen/normal_margin" />
+                    android:id="@+id/popRestaurantLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Popular Restaurants"
+                    android:textSize="@dimen/normal_text" />
 
                 <com.facebook.shimmer.ShimmerFrameLayout
                 android:layout_width="match_parent"

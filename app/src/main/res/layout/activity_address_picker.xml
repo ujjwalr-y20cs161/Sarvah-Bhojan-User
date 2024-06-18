@@ -11,16 +11,15 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:gravity="center_vertical"
-       android:background="?attr/colorSurfaceContainerHigh"
        android:orientation="horizontal">
 
-       <ImageButton
+       <com.google.android.material.floatingactionbutton.FloatingActionButton
            android:id="@+id/BackButton"
-           android:layout_margin="@dimen/large_margin"
-           android:layout_width="@dimen/small_image"
-           android:layout_height="@dimen/small_image"
-           android:src="@drawable/back_arrow"
-           android:backgroundTint="@color/transparent0"/>
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:backgroundTint="?attr/colorSurfaceContainerHigh"
+           android:layout_margin="@dimen/normal_margin"
+           android:src="@drawable/back_arrow"/>
 
        <TextView
            android:id="@+id/addressPickerLabel"
@@ -31,10 +30,6 @@
            android:text="Address Catalogue"
            android:gravity="center"
            android:textSize="@dimen/normal_text"/>
-
-
-
-
 
    </LinearLayout>
 

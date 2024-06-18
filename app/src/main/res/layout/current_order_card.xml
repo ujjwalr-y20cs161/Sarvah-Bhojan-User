@@ -67,7 +67,8 @@
             android:layout_width="@dimen/medium_image"
             android:layout_height="@dimen/medium_image"
             android:layout_gravity="start"
-            android:backgroundTint="@color/transparent0"
+            android:background = "@drawable/add_minus_bg"
+            android:backgroundTint="?attr/colorSurface"
             android:layout_margin="@dimen/small_margin"
             android:src="@drawable/baseline_assistant_navigation_24" />
 
@@ -78,6 +79,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/add_minus_bg"
+        android:backgroundTint="?attr/colorSurface"
         android:gravity="center"
         android:layout_margin="@dimen/normal_margin">
 
@@ -90,7 +93,6 @@
             android:text="Status"
             android:gravity="center"
             android:textSize="@dimen/xs"
-            android:background="@drawable/rounded_large"
             android:drawablePadding="@dimen/small_margin"
             android:padding="@dimen/small_margin"
             android:drawableLeft="@drawable/baseline_insights_24"/>
@@ -104,7 +106,7 @@
             android:gravity="center"
             android:textSize="@dimen/xs"
             android:layout_weight="1"
-            android:background="@drawable/rounded_large"
+
             android:drawablePadding="@dimen/small_margin"
             android:padding="@dimen/small_margin"
             android:drawableLeft="@drawable/baseline_directions_bike_24"/>
@@ -118,10 +120,9 @@
             android:gravity="center"
             android:textSize="@dimen/xs"
             android:text="550.5"
-            android:background="@drawable/rounded_large"
             android:drawablePadding="@dimen/small_margin"
             android:padding="@dimen/small_margin"
-            android:drawableLeft="@drawable/baseline_currency_rupee_24"/>
+            android:drawableLeft="@drawable/rupee18"/>
 
 
     </LinearLayout>

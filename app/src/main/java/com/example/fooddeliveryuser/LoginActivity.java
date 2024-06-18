@@ -2,6 +2,7 @@ package com.example.fooddeliveryuser;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText editTextUsername;
     private TextInputEditText editTextPassword;
     private MaterialButton buttonLogin;
-    private MaterialButton buttonForgotPassword;
+    private Button buttonForgotPassword;
     private MaterialButton buttonRegister;
     private ImageView userImageView;
     private TextView textViewLoginMessage;

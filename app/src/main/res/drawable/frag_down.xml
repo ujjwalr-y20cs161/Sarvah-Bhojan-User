@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:topLeftRadius="@dimen/large_margin" android:topRightRadius="@dimen/large_margin"/>
+    <gradient android:startColor="@color/quantum_pink" android:endColor="@color/quantum_purple" android:angle="45"></gradient>
+</shape>

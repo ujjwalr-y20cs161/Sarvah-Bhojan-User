@@ -1,12 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RestaurantCatalogue">
 
+    <ScrollView
+        android:id="@+id/MainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/BackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:backgroundTint="?attr/colorSurfaceContainerHigh"
+                    android:src="@drawable/back_arrow" />
 
-</ScrollView>
+                <TextView
+                    android:id="@+id/restaurantName"
+                    android:layout_width="@dimen/normal_text_limiter"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:maxLines="2"
+                    android:text="Restaurant Name Branch Version 2"
+                    android:textSize="@dimen/normal_text" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:background="@drawable/rounded_large"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/restaurantId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_marginRight="@dimen/normal_margin"
+                        android:ellipsize="end"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/montserrat"
+                        android:maxLines="1"
+                        android:text="#ROGL101"
+                        android:textSize="@dimen/xs" />
+
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/small_margin"
+                        android:background="@drawable/add_minus_bg"
+                        android:backgroundTint="?attr/colorSurfaceContainer"
+                        android:drawableLeft="@drawable/star_2"
+                        android:drawablePadding="@dimen/small_text"
+                        android:gravity="center"
+                        android:padding="@dimen/small_margin"
+                        android:text="4.0" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/restaurantAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:layout_marginRight="@dimen/normal_margin"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat"
+                    android:maxLines="1"
+                    android:text="Address Lines"
+                    android:textSize="@dimen/small_text" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginRight="@dimen/normal_margin"
+                    android:layout_marginBottom="@dimen/normal_margin"
+                    android:background="@drawable/add_minus_bg"
+                    android:backgroundTint="?attr/colorSurfaceContainer"
+                    android:gravity="center"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/restaurantDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:drawableLeft="@drawable/baseline_directions_bike_24"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center"
+                        android:text="25 Kms"
+                        android:textSize="@dimen/xs" />
+
+                    <include layout="@layout/dot" />
+
+                    <TextView
+                        android:id="@+id/restaurantStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:drawableLeft="@drawable/baseline_insights_24"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center"
+                        android:text="Open Now"
+                        android:textColor="@color/quantum_googgreen"
+                        android:textSize="@dimen/xs" />
+
+                    <include layout="@layout/dot" />
+
+                    <TextView
+                        android:id="@+id/restaurantCuisine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:drawableLeft="@drawable/baseline_label_24"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_light"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="North Indian"
+                        android:textSize="@dimen/xs" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <include layout="@layout/line" />
+
+            <TextView
+                android:id="@+id/foodCatalogueLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Dish Catalogue"
+                android:textSize="@dimen/normal_text"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/vegSelector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:checkedButton="@id/all"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/all"
+                        android:button="@drawable/triangle_small_svgrepo_com"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:background="@drawable/add_minus_bg"
+                        android:backgroundTint="?attr/colorSurfaceContainerHigh"
+                        android:drawablePadding="@dimen/small_text"
+                        android:fontFamily="@font/montserrat"
+                        android:padding="@dimen/normal_margin"
+                        android:text="All"
+                        android:textSize="@dimen/xs" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/Vegetarian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/add_minus_bg"
+                        android:backgroundTint="?attr/colorSurfaceContainerHigh"
+                        android:button="@drawable/veg_drawable"
+                        android:drawablePadding="@dimen/small_text"
+                        android:fontFamily="@font/montserrat"
+                        android:padding="@dimen/normal_margin"
+                        android:text="Vegetarian"
+                        android:textSize="@dimen/xs" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/NonVegetarian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:background="@drawable/add_minus_bg"
+                        android:backgroundTint="?attr/colorSurfaceContainerHigh"
+                        android:button="@drawable/non_veg_drawable"
+                        android:fontFamily="@font/montserrat"
+                        android:padding="@dimen/normal_margin"
+                        android:text="Non Vegetarian"
+                        android:textSize="@dimen/xs" />
+
+                </RadioGroup>
+
+            </HorizontalScrollView>
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true">
+                <LinearLayout
+                    android:id="@+id/foodCatalogueLoad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/order_item_load" />
+
+                    <include layout="@layout/order_item_load" />
+
+                    <include layout="@layout/order_item_load" />
+
+                    <include layout="@layout/order_item_load" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <LinearLayout
+                android:id="@+id/foodCatalogue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:orientation="vertical">
+
+                <include layout="@layout/order_item_cart" />
+
+                <include layout="@layout/order_item_cart" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/large_margin"
+                android:layout_margin="@dimen/large_margin"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MainView"
+        android:background="@drawable/frag_down"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="View and Pay"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text" />
+
+        <Button
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:drawableRight="@drawable/baseline_chevron_right_24"
+            android:fontFamily="@font/montserrat"
+            android:text="Go to Cart"
+            android:textSize="@dimen/small_text"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

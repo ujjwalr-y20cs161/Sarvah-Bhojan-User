@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android" android:innerRadius="@dimen/small_margin">
-<!--    <gradient android:startColor="@color/quantum_pink" android:endColor="@color/quantum_purple" android:angle="45"></gradient>-->
-    <corners android:radius="@dimen/small_margin"></corners>
+    <gradient android:startColor="@color/quantum_pink" android:endColor="@color/quantum_purple" android:angle="45"></gradient>
+<!--    <gradient android:startColor="@color/quantum_pinkA100" android:angle="45" android:endColor="@color/quantum_purpleA100"/>-->
 </shape>

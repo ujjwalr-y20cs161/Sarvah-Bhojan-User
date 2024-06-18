@@ -10,8 +10,7 @@
     tools:context=".Orders">
 
     <LinearLayout
-        android:layout_margin="@dimen/normal_margin"
-        android:layout_marginTop="@dimen/large_margin"
+        android:layout_margin="@dimen/small_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -22,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
             android:text="Orders on the way"
-            android:textSize="@dimen/normal_text"
+            android:textSize="@dimen/medium_text"
             android:id="@+id/CurrentOrders"/>
 
 

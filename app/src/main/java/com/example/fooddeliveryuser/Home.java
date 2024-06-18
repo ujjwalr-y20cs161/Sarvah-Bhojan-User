@@ -92,6 +92,11 @@ public class Home extends Fragment {
             }
         });
 
+
+        binding.popRestaurantLabel.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), RestaurantCatalogue.class));
+        });
+
         binding.addressLabel.setOnClickListener(v->{
             startActivity(new Intent(getContext(),AddressPicker.class));
         });

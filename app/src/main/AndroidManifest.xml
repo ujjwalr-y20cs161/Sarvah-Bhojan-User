@@ -17,6 +17,9 @@
         android:theme="@style/Theme.FoodDeliveryUser"
         tools:targetApi="31">
         <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
             android:name=".RestaurantCatalogue"
             android:exported="false" />
         <activity

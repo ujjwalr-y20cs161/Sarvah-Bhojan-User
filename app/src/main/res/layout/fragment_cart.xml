@@ -11,6 +11,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:layout_margin="@dimen/small_margin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -130,8 +131,37 @@
 
                     </com.facebook.shimmer.ShimmerFrameLayout>
 
-                </LinearLayout>
+                    <include layout="@layout/order_item_cart"/>
 
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/noItemsCartLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/small_margin"
+                    android:backgroundTint="?attr/colorSurfaceContainerHigh"
+                    android:background="@drawable/add_minus_bg">
+
+                    <ImageView
+                        android:id="@+id/noItemsCartImage"
+                        android:layout_width="@dimen/large_image"
+                        android:layout_height="@dimen/large_image"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:src="@drawable/unavailable"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No Items in Cart"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textSize="@dimen/small_text"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/small_margin"/>
+
+
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 </FrameLayout>

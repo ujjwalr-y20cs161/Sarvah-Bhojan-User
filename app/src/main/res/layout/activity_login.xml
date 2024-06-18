@@ -9,91 +9,179 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:gravity="center"
     tools:context=".LoginActivity">
 
-
-    <ImageView
-        android:id="@+id/loginImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/large_margin"
-        android:src="@drawable/user_icon"></ImageView>
-
-    <TextView
-        android:id="@+id/loginText"
+    <LinearLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/normal_margin"
-        android:fontFamily="@font/montserrat_medium"
-        android:text="Please Login."
-        android:textSize="@dimen/medium_text" />
+        android:gravity="center"
+        android:padding="@dimen/small_margin"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameInputLayout"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small_margin"
-        android:hint="Username">
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="@dimen/medium_text"
+            android:layout_height="@dimen/medium_text"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@drawable/app_icon" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordInputLayout"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small_margin"
-        android:hint="Password">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonForgotPassword"
-        style="@style/Widget.Material3.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:background="?android:attr/selectableItemBackground"
-        android:layout_margin="@dimen/small_margin"
-        android:text="Forgot Password?" />
+            android:fontFamily="@font/major_mono_display"
+            android:layout_marginRight="@dimen/large_margin"
+            android:text="@string/app_name"
+            android:textSize="@dimen/small_text" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonRegister"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/small_margin"
-            android:text="Register" />
+        <ImageView
+            android:id="@+id/loginImageView"
+            android:layout_width="@dimen/medium_image"
+            android:layout_height="@dimen/medium_image"
+            android:layout_margin="@dimen/large_margin"
+            android:src="@drawable/user_icon"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLogin"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/screenLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/small_margin"
-            android:text="Login" />
+            android:fontFamily="@font/montserrat"
+            android:textSize="@dimen/normal_text"
+            android:text="Sign Into Account"/>
+
     </LinearLayout>
-    <!-- Additional Material Design elements can be added here -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_rect_small"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:layout_marginBottom="@dimen/large_margin"
+        android:layout_height="wrap_content">
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_duration="1000"
+            app:shimmer_auto_start="true">
+            <TextView
+                android:id="@+id/loginText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:textAlignment="center"
+                android:textColor="?attr/colorSurface"
+                android:text="Login to find out amazing cuisines"
+                android:padding="@dimen/small_margin"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/normal_margin"
+        android:background="@drawable/rounded_large"
+        android:layout_margin="@dimen/normal_margin">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:hint="Username/ Email/ Phone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="match_parent"
+                android:drawableLeft="@drawable/baseline_face_24"
+                android:drawablePadding="@dimen/small_text"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:orientation="horizontal"
+            app:passwordToggleEnabled="true"
+            android:hint="Password">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:drawablePadding="@dimen/small_text"
+                android:drawableLeft="@drawable/baseline_key_24"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonForgotPassword"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:drawableLeft="@drawable/baseline_info_24"
+            android:drawablePadding="@dimen/small_text"
+            android:layout_margin="@dimen/small_margin"
+            android:text="Forgot Password?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonRegister"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="?attr/colorControlNormal"
+                android:drawablePadding="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:drawableLeft="@drawable/add"
+                android:text="New User?" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonLogin"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:fontFamily="@font/montserrat"
+                android:drawableLeft="@drawable/baseline_arrow_forward_24"
+                android:text="Login" />
+        </LinearLayout>
+        <!-- Additional Material Design elements can be added here -->
+
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>
 </ScrollView>

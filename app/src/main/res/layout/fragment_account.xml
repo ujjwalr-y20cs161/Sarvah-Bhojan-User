@@ -3,16 +3,228 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_neutral20"
     tools:context=".Account">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="@dimen/medium_text"
-        android:gravity="center"
-        android:textColor="@color/material_dynamic_primary100"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/small_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/accountFragLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Account Center"
+                android:textSize="@dimen/medium_text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/rounded_large"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/medium_image"
+                        android:layout_height="@dimen/medium_image"
+                        android:layout_margin="@dimen/small_margin"
+                        android:src="@drawable/user_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/UserName"
+                            android:layout_width="@dimen/small_text_limiter"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginRight="@dimen/small_margin"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:maxLines="1"
+                            android:text="Alex Maxwell "
+                            android:textSize="@dimen/small_text" />
+
+                        <TextView
+                            android:id="@+id/id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat"
+                            android:maxLines="1"
+                            android:text="#a10001"
+                            android:textSize="@dimen/xs" />
+                    </LinearLayout>
+
+                    <Button
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableRight="@drawable/baseline_chevron_right_24"
+                        android:text="Edit Info"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="@dimen/xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:layout_marginBottom="@dimen/normal_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/baseline_local_phone_24"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat"
+                        android:maxLines="1"
+                        android:text="+91 9876543210"
+                        android:textSize="@dimen/xs" />
+
+                    <TextView
+                        android:id="@+id/emailDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/outline_alternate_email_24"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat"
+                        android:maxLines="1"
+                        android:text="example@sarvahbhojan.com"
+                        android:textSize="@dimen/xs" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@color/quantum_grey" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_large"
+                android:fontFamily="@font/montserrat"
+                android:text="Payment Method"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:padding="@dimen/large_margin"
+                android:drawablePadding="@dimen/small_margin"
+                android:drawableLeft="@drawable/baseline_currency_rupee_24"
+                android:drawableRight="@drawable/baseline_chevron_right_24"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_large"
+                android:fontFamily="@font/montserrat"
+                android:text="Addresses"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:padding="@dimen/large_margin"
+                android:drawablePadding="@dimen/small_margin"
+                android:drawableLeft="@drawable/baseline_location_on_24"
+
+                android:drawableRight="@drawable/baseline_chevron_right_24"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_large"
+                android:fontFamily="@font/montserrat"
+                android:text="Customer Support"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:padding="@dimen/large_margin"
+                android:drawablePadding="@dimen/small_margin"
+                android:drawableLeft="@drawable/icons8_customer_service_24"
+                android:drawableRight="@drawable/baseline_chevron_right_24"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:background="@drawable/rounded_large"
+                android:text="Delete Account"
+                android:textColor="@color/quantum_googred"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:padding="@dimen/large_margin"
+                android:drawablePadding="@dimen/small_margin"
+                android:drawableLeft="@drawable/baseline_delete_outline_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/rounded_large"
+                android:drawableLeft="@drawable/baseline_logout_24"
+                android:drawablePadding="@dimen/small_margin"
+                android:fontFamily="@font/montserrat"
+                android:padding="@dimen/large_margin"
+                android:text="Log out of Account"
+                android:textSize="@dimen/small_text" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/small_margin"
+                    android:background="@color/quantum_grey"/>
+
+            <TextView
+                android:id="@+id/projectInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:fontFamily="@font/jet"
+                android:text=" @github : ujjwalr-y20cs161"
+                android:textAlignment="center"
+                android:textSize="@dimen/small_text" />
+            <TextView
+                android:id="@+id/devSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_margin"
+                android:fontFamily="@font/major_mono_display"
+                android:text="with 💖 ujjwal"
+                android:textAlignment="center"
+                android:textSize="@dimen/normal_text" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
