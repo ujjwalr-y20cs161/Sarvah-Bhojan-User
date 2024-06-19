@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Payment">
+    tools:context=".AddressPicker">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorSurfaceContainerHigh"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/paymentMethodLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Your Payment Modes"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/normal_margin"
+                android:text="Add Your UPI IDs"
+                android:id="@+id/addUPILabel"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/rounded_large"
+                android:padding="@dimen/small_text"
+                android:gravity="center"
+                android:id="@+id/addUPILayout">
+
+                <EditText
+                    android:textAlignment="textStart"
+                    android:drawablePadding="@dimen/small_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:background="@drawable/edittext"
+                    android:textSize="@dimen/small_text"
+                    android:drawableLeft="@drawable/round_attach_money_24"
+                    android:hint="phonenumber@UPIprovider"
+                    android:padding="@dimen/small_text"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_margin="@dimen/small_margin"
+                    android:text="Add UPI"
+                    android:drawableLeft="@drawable/add_variant"/>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/availableUPILabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/small_text"
+                android:text="Available UPI IDs"
+                android:layout_margin="@dimen/normal_margin"/>
+
+            <LinearLayout
+                android:id="@+id/availableUPILayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/normal_margin"
+                android:layout_marginLeft="@dimen/normal_margin"
+                android:orientation="vertical">
+
+                <include layout="@layout/upi_card" />
+
+                <include layout="@layout/upi_card" />
+
+                <include layout="@layout/upi_card" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

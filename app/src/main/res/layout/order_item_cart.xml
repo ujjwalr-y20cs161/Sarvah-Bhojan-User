@@ -42,12 +42,11 @@
                 android:id="@+id/resautantDetails"
                 android:layout_width="@dimen/small_text_limiter"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/xs"
+                android:ellipsize="end"
                 android:fontFamily="@font/montserrat"
-                android:text="Dominos"
-                android:layout_marginTop="@dimen/small_margin"
                 android:maxLines="1"
-                android:ellipsize="end"/>
+                android:text="Dominos"
+                android:textSize="@dimen/xs" />
 
         </LinearLayout>
 
@@ -82,12 +81,12 @@
                     android:layout_width="@dimen/medium_image"
                     android:layout_height="@dimen/medium_image"
                     android:layout_margin="@dimen/small_margin"
+                    android:background="@drawable/cart_number"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
                     android:text="25"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/montserrat"
-                    android:textSize="@dimen/small_text"
-                    android:gravity="center"
-                    android:background="@drawable/cart_number"/>
+                    android:textSize="@dimen/xs" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/addMore"

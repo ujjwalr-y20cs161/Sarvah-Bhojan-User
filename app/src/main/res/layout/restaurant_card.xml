@@ -36,14 +36,14 @@
 
         <TextView
             android:id="@+id/restaurantAddress"
-            android:layout_marginTop="@dimen/small_margin"
             android:layout_width="@dimen/small_text_limiter"
             android:layout_height="wrap_content"
-            android:text="Address Lane"
-            android:maxLines="1"
+            android:layout_marginTop="@dimen/small_margin"
             android:ellipsize="end"
             android:fontFamily="@font/montserrat_medium"
-            android:textSize="@dimen/x_small_text"/>
+            android:maxLines="1"
+            android:text="Address Lane"
+            android:textSize="@dimen/xs" />
 
         <TextView
             android:id="@+id/restaurantRating"

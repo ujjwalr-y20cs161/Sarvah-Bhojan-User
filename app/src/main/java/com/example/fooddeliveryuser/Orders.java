@@ -1,4 +1,5 @@
 package com.example.fooddeliveryuser;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,12 +27,12 @@ public class Orders extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    FragmentOrdersBinding binding;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-
-    FragmentOrdersBinding binding;
     private final static int PLACE_PICKER_REQUEST = 999;
 
     public Orders() {
@@ -62,6 +63,10 @@ public class Orders extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentOrdersBinding.inflate(inflater,container,false);
         // Initialize and set up AutocompleteSupportFragment
+
+        binding.previousOrderText.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), Rating.class));
+        });
 
         return binding.getRoot();
     }

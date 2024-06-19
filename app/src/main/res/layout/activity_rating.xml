@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AddressPicker">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorSurfaceContainerHigh"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/RatingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Rate Your Order"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"/>
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/userRateGuideText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_light"
+        android:textSize="@dimen/normal_text"
+        android:layout_margin="@dimen/large_margin"
+        android:text="Hey Alex, Please Rate your Order"
+        android:textAlignment="center"/>
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="@drawable/rounded_large"
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/add_minus_bg"
+                android:backgroundTint="?attr/colorSurface"
+                android:gravity="center"
+                android:layout_margin="@dimen/normal_margin">
+
+                <TextView
+                    android:id="@+id/orderNumber"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="#orderNumber"
+                    android:gravity="center"
+                    android:textSize="@dimen/xs"
+                    android:drawablePadding="@dimen/small_margin"
+                    android:padding="@dimen/small_margin"
+                    android:drawableLeft="@drawable/baseline_next_week_24"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/quantum_grey"/>
+
+                <TextView
+                    android:id="@+id/restaurantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Restaurant Name"
+                    android:maxLength="20"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:textSize="@dimen/xs"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/small_margin"
+                    android:padding="@dimen/small_margin"
+                    android:drawableLeft="@drawable/baseline_fastfood_24"/>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/normal_margin"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/normal_margin"
+                android:text="Restaurant Rating"
+                android:textAlignment="center"
+                android:id="@+id/RestaurantRating"/>
+
+            <RatingBar
+                android:id="@+id/restaurantRating"
+                android:layout_gravity="center"
+                android:numStars="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stepSize="1"/>
+
+
+            <TextView
+                android:id="@+id/availableUPILabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/small_text"
+                android:textAlignment="center"
+                android:text="Delivery Rating"
+                android:layout_margin="@dimen/normal_margin"/>
+
+            <RatingBar
+                android:id="@+id/deliveryRating"
+                android:layout_gravity="center"
+                android:numStars="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stepSize="1"/>
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/large_margin"
+                android:id="@+id/submitRating"
+                android:text="Submit Rating"
+                android:textColor="?attr/colorSurface"
+                android:drawableRight="@drawable/baseline_done_24"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

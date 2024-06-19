@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.fooddeliveryuser.databinding.FragmentAccountBinding;
 import com.example.fooddeliveryuser.databinding.FragmentHomeBinding;
@@ -73,7 +72,7 @@ public class Account extends Fragment {
         });
 
         binding.paymentMethodCard.setOnClickListener(v->{
-            startActivity(new Intent(getContext(), Payment.class));
+            startActivity(new Intent(getContext(), PaymentMethod.class));
         });
 
         binding.addressCard.setOnClickListener(v->{

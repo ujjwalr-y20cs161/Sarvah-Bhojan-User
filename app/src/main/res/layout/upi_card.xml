@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="@drawable/rounded_large"
+    android:gravity="center_vertical"
+    android:layout_marginTop="@dimen/small_margin"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/upiColor"
+        android:padding="@dimen/normal_margin"
+        android:layout_margin="@dimen/normal_margin"
+        android:src="@drawable/round_attach_money_24" />
+
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/UPIId"
+        android:padding="@dimen/normal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:textSize="@dimen/small_text"
+        android:text="9876543210@ybl"/>
+
+    <ImageView
+        android:layout_margin="@dimen/normal_margin"
+        android:id="@+id/clearUPI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_clear_24"
+        android:padding="@dimen/normal_margin"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"/>
+
+
+</LinearLayout>
