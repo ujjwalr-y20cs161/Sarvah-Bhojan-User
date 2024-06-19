@@ -150,15 +150,15 @@
             app:passwordToggleEnabled="true"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
+            app:startIconDrawable="@drawable/baseline_key_24"
             android:hint="Password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/montserrat_light"
+                android:drawableStart="@drawable/baseline_key_24"
                 android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/small_text"
-                android:drawableLeft="@drawable/baseline_key_24"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 

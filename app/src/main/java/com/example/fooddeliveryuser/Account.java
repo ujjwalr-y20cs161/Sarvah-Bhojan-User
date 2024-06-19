@@ -1,5 +1,6 @@
 package com.example.fooddeliveryuser;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.fooddeliveryuser.databinding.FragmentAccountBinding;
+import com.example.fooddeliveryuser.databinding.FragmentHomeBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +24,8 @@ public class Account extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    FragmentAccountBinding binding;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +66,38 @@ public class Account extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        binding = FragmentAccountBinding.inflate(inflater,container,false);
+
+        binding.editInfo.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), UserInfoScreen.class));
+        });
+
+        binding.paymentMethodCard.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), Payment.class));
+        });
+
+        binding.addressCard.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), AddressPicker.class));
+        });
+
+        binding.deleteAccountCard.setOnClickListener(v->{
+
+        });
+
+        binding.LogoutCard.setOnClickListener(v->{
+//            Invoke Dialog Box
+
+//         TODO: Log out Logic, Clear database
+
+
+            startActivity(new Intent(getContext(), LoginActivity.class));
+            getActivity().finish();
+        });
+
+        binding.projectInfo.setOnClickListener(v-> {
+//            URL loaded into browser
+        });
+
+        return binding.getRoot();
     }
 }

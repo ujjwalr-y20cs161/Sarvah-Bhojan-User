@@ -65,6 +65,8 @@
         </LinearLayout>
 
         <ImageButton
+            android:foreground="?selectableItemBackground"
+            android:clickable="true"
             android:id="@+id/CurrentOrderNavigate"
             android:layout_width="@dimen/medium_image"
             android:layout_height="@dimen/medium_image"

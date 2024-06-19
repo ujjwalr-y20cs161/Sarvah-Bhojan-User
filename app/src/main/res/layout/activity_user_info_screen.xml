@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserInfoScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_arrow"
+                android:layout_margin="@dimen/normal_margin"
+                android:id="@+id/BackButton"
+                android:backgroundTint="?attr/colorSurfaceContainerHigh"/>
+
+            <TextView
+                android:id="@+id/userInfoLabel"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="@dimen/small_text"
+                android:maxLines="1"
+                android:layout_margin="@dimen/normal_margin"
+                android:text="User Information Center"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"/>
+
+
+        <TextView
+            android:id="@+id/userInfoGuideText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="@dimen/normal_text"
+            android:layout_margin="@dimen/large_margin"
+            android:text="Hey Alex, You can change any information here"
+            android:textAlignment="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/normal_margin"
+            android:paddingBottom="@dimen/normal_margin"
+            android:layout_margin="@dimen/normal_margin"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_large">
+
+            <EditText
+                android:id="@+id/userName"
+                android:background="@drawable/edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal_margin"
+                android:hint="User Name"
+                android:text="User Name"
+                android:drawableLeft="@drawable/baseline_face_24"
+                android:drawablePadding="@dimen/small_text"
+                android:layout_margin="@dimen/normal_margin"/>
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:background="@drawable/edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal_margin"
+                android:hint="Phone Number"
+                android:text="9874563210"
+                android:drawableLeft="@drawable/baseline_local_phone_24"
+                android:drawablePadding="@dimen/small_text"
+                android:layout_margin="@dimen/normal_margin"/>
+
+
+            <EditText
+                android:id="@+id/emailAddress"
+                android:background="@drawable/edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal_margin"
+                android:hint="Email Address"
+                android:text="example@sarvahbhojan.com"
+                android:drawableLeft="@drawable/outline_alternate_email_24"
+                android:drawablePadding="@dimen/small_text"
+                android:layout_margin="@dimen/normal_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Widget.Material3.Button"
+                    android:id="@+id/userInfoEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Info"
+                    android:drawablePadding="@dimen/small_text"
+                    android:layout_margin="@dimen/small_margin"
+                    android:drawableLeft="@drawable/edit_variant_20"/>
+
+                <Button
+                    style="@style/Widget.Material3.Button"
+                    android:id="@+id/userInfoSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save Info"
+                    android:layout_margin="@dimen/small_margin"
+                    android:enabled="false"
+                    android:drawablePadding="@dimen/small_text"
+                    android:drawableLeft="@drawable/baseline_bookmark_24"/>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

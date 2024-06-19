@@ -121,7 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
             android:orientation="horizontal"
-            app:passwordToggleEnabled="true"
+            app:endIconMode="password_toggle"
+            app:endIconCheckable="true"
+            app:startIconDrawable="@drawable/baseline_key_24"
             android:hint="Password">
 
 
@@ -130,7 +132,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_light"
-                android:drawablePadding="@dimen/small_text"
                 android:drawableLeft="@drawable/baseline_key_24"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>

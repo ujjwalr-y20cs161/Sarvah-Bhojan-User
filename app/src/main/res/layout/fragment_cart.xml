@@ -6,108 +6,198 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CartFragment">
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/priceLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_large"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="4"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/small_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="Order Total\nDelivery Charge"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/small_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="500\n100"/>
+
+            </LinearLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true"
+                android:id="@+id/billLoader">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="4"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/small_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/quantum_grey"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="\n"/>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/small_text"
+                        android:textColor="@color/quantum_googgreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="$$\n$$"/>
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_margin="@dimen/small_margin"
+                android:id="@+id/orderTotalLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="@dimen/small_text"
+                    android:id="@+id/orderTotalLabel"
+                    android:text="Total Amount"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/small_margin"/>
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/orderTotalLoad"
+                    app:shimmer_auto_start="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:textSize="@dimen/small_text"
+                        android:textColor="@color/quantum_googgreen"
+                        android:text="$$$$"
+                        android:layout_gravity="end"
+                        android:layout_margin="@dimen/small_margin"/>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                <TextView
+                    android:id="@+id/orderTotalPrice"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="@dimen/small_text"
+                    android:text="$$$$"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:layout_margin="@dimen/small_margin"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/quantum_grey"
+                android:layout_margin="@dimen/small_margin"/>
+
+
+
+            <Button
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay and Order"
+                style="@style/Widget.Material3.Button"
+                android:drawableEnd="@drawable/chevron_variant"
+                android:layout_weight="1"
+                android:id="@+id/cartOrderNow"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cartOptionsGroup"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_weight="2"
+            android:id="@+id/cartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Cart"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="@dimen/medium_text"/>
+
+            <Button
+                android:textColor="?attr/colorControlNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear Cart"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/normal_margin"
+                android:drawableLeft="@drawable/baseline_clear_24"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:id="@+id/clearCartButton"/>
+
+        </LinearLayout>
+
+            <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_margin="@dimen/normal_margin"
-                        android:id="@+id/cartText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Your Cart"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:textSize="@dimen/medium_text"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_margin="@dimen/small_margin"
-                        android:id="@+id/orderTotalLayout">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:textSize="@dimen/small_text"
-                            android:id="@+id/orderTotalLabel"
-                            android:text="Order Total"
-                            android:layout_weight="1"
-                            android:layout_margin="@dimen/small_margin"/>
-
-                        <com.facebook.shimmer.ShimmerFrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/orderTotalLoad"
-                            app:shimmer_auto_start="true">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:textSize="@dimen/small_text"
-                                android:textColor="@color/quantum_googgreen"
-                                android:text="$$$$"
-                                android:layout_gravity="end"
-                                android:layout_margin="@dimen/small_margin"/>
-
-                        </com.facebook.shimmer.ShimmerFrameLayout>
-
-
-                        <TextView
-                            android:id="@+id/orderTotalPrice"
-                            android:visibility="gone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:textSize="@dimen/small_text"
-                            android:text="$$$$"
-                            android:layout_weight="1"
-                            android:textAlignment="textEnd"
-                            android:layout_margin="@dimen/small_margin"/>
-
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/quantum_grey"
-                        android:layout_margin="@dimen/small_margin"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cartOptionsGroup"
-                    android:orientation="horizontal">
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Clear Cart"
-                        android:layout_weight="1"
-                        android:layout_margin="@dimen/normal_margin"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:id="@+id/clearCartButton"/>
-
-                    <Button
-                        android:layout_margin="@dimen/normal_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Order Now"
-                        style="@style/Widget.Material3.Button"
-                        android:layout_weight="1"
-                        android:id="@+id/cartOrderNow"/>
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -162,6 +252,11 @@
 
 
                 </LinearLayout>
+
+
+
             </LinearLayout>
-        </ScrollView>
+    </LinearLayout>
+    </ScrollView>
+
 </FrameLayout>

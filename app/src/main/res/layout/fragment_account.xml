@@ -66,7 +66,7 @@
                             android:textSize="@dimen/small_text" />
 
                         <TextView
-                            android:id="@+id/id"
+                            android:id="@+id/UserId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -78,6 +78,7 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/editInfo"
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,26 +136,28 @@
                 android:background="@color/quantum_grey" />
 
             <TextView
+                android:id="@+id/paymentMethodCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_large"
                 android:fontFamily="@font/montserrat"
                 android:text="Payment Method"
                 android:textSize="@dimen/small_text"
-                android:layout_margin="@dimen/small_margin"
                 android:padding="@dimen/large_margin"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
                 android:drawablePadding="@dimen/small_margin"
                 android:drawableLeft="@drawable/baseline_currency_rupee_24"
                 android:drawableRight="@drawable/baseline_chevron_right_24"/>
 
             <TextView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:id="@+id/addressCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_large"
                 android:fontFamily="@font/montserrat"
                 android:text="Addresses"
                 android:textSize="@dimen/small_text"
-                android:layout_margin="@dimen/small_margin"
                 android:padding="@dimen/large_margin"
                 android:drawablePadding="@dimen/small_margin"
                 android:drawableLeft="@drawable/baseline_location_on_24"
@@ -162,50 +165,57 @@
                 android:drawableRight="@drawable/baseline_chevron_right_24"/>
 
             <TextView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:id="@+id/customerSupportCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_large"
                 android:fontFamily="@font/montserrat"
                 android:text="Customer Support"
                 android:textSize="@dimen/small_text"
-                android:layout_margin="@dimen/small_margin"
+
                 android:padding="@dimen/large_margin"
                 android:drawablePadding="@dimen/small_margin"
                 android:drawableLeft="@drawable/icons8_customer_service_24"
                 android:drawableRight="@drawable/baseline_chevron_right_24"/>
 
             <TextView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:id="@+id/deleteAccountCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:background="@drawable/rounded_large"
                 android:text="Delete Account"
                 android:textColor="@color/quantum_googred"
                 android:textSize="@dimen/small_text"
-                android:layout_margin="@dimen/small_margin"
                 android:padding="@dimen/large_margin"
                 android:drawablePadding="@dimen/small_margin"
                 android:drawableLeft="@drawable/baseline_delete_outline_24" />
 
             <TextView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:id="@+id/LogoutCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_margin"
-                android:background="@drawable/rounded_large"
                 android:drawableLeft="@drawable/baseline_logout_24"
                 android:drawablePadding="@dimen/small_margin"
                 android:fontFamily="@font/montserrat"
+                android:gravity="start"
                 android:padding="@dimen/large_margin"
                 android:text="Log out of Account"
                 android:textSize="@dimen/small_text" />
 
-                <View
+            <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_margin="@dimen/small_margin"
                     android:background="@color/quantum_grey"/>
 
             <TextView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
                 android:id="@+id/projectInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
