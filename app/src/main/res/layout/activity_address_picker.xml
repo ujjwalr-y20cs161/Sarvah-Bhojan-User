@@ -154,6 +154,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/addAddress"
                 android:layout_margin="@dimen/large_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

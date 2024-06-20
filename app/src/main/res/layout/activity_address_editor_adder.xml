@@ -1,9 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".AddressEditorAdder">
+    tools:context=".AddressPicker">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorSurfaceContainerHigh"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/addressPickerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Address Editor"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_margin"
+                android:fontFamily="@font/montserrat_light"
+                android:textSize="@dimen/normal_text"
+                android:textAlignment="center"
+                android:id="@+id/addressAdderGuideText"
+                android:text="Add or Edit Your Address"/>
+
+            <EditText
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Label"
+                android:hint="Address Label"
+                android:background="@drawable/edittext"
+                android:padding="@dimen/normal_margin"/>
+
+
+            <com.google.android.gms.maps.MapView
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:foreground="@color/quantum_googgreen"
+                android:id="@+id/mapPicker"/>
+
+            <TextView
+                android:id="@+id/geocodeText"
+                android:layout_width="wrap_content"
+                android:drawablePadding="@dimen/small_text"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textAlignment="center"
+                android:textSize="@dimen/xs"
+                android:text="GeoCode: "
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                android:layout_margin="@dimen/small_margin"/>
+
+
+            <EditText
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/DoorNo"
+                android:inputType="textPostalAddress"
+                android:hint="Door No.,Street"
+                android:background="@drawable/edittext"
+                android:padding="@dimen/normal_margin"/>
+
+
+            <EditText
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/city"
+                android:hint="City,State"
+                android:inputType="textPostalAddress"
+                android:background="@drawable/edittext"
+                android:padding="@dimen/normal_margin"/>
+
+            <EditText
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Pincode"
+                android:inputType="number"
+                android:hint="Pincode"
+                android:background="@drawable/edittext"
+                android:padding="@dimen/normal_margin"/>
+
+            <EditText
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ReceiverName"
+                android:hint="Receiver Name"
+                android:inputType="textPersonName"
+                android:background="@drawable/edittext"
+                android:padding="@dimen/normal_margin"/>
+
+            <EditText
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/small_text"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ReceiverPhone"
+                android:inputType="phone"
+                android:hint="Receiver Phone Number"
+                android:background="@drawable/edittext"
+                android:padding="@dimen/normal_margin"/>
+
+
+
+
+            <Button
+                style="@style/Widget.Material3.Button"
+                android:id="@+id/pickLocation"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="?attr/colorSurface"
+                android:layout_height="wrap_content"
+                android:text="Save Location"
+                android:drawableLeft="@drawable/baseline_bookmark_24"
+                android:layout_margin="@dimen/small_margin"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_height="@dimen/large_margin"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
