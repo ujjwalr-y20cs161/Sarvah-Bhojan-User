@@ -201,7 +201,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:drawablePadding="@dimen/small_margin"
-            android:drawableLeft="@drawable/add_variant"
+            android:drawableLeft="@drawable/add_sqaure"
             android:layout_margin="@dimen/normal_margin"
             android:text="Create Account"/>
     </LinearLayout>

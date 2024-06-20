@@ -22,7 +22,7 @@
             android:fontFamily="@font/montserrat_semibold"
             android:text="Orders on the way"
             android:textSize="@dimen/medium_text"
-            android:id="@+id/CurrentOrders"/>
+            android:id="@+id/CurrentOrdersText"/>
 
 
         <com.facebook.shimmer.ShimmerFrameLayout

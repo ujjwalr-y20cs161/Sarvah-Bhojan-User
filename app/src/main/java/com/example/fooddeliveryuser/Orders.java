@@ -68,6 +68,10 @@ public class Orders extends Fragment {
             startActivity(new Intent(getContext(), Rating.class));
         });
 
+        binding.CurrentOrdersText.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), TrackActivity.class));
+        });
+
         return binding.getRoot();
     }
 }

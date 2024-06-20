@@ -162,7 +162,7 @@
                 android:textColor="?attr/colorControlNormal"
                 android:drawablePadding="@dimen/small_text"
                 android:layout_margin="@dimen/small_margin"
-                android:drawableLeft="@drawable/add"
+                android:drawableLeft="@drawable/add_variant"
                 android:text="New User?" />
 
             <com.google.android.material.button.MaterialButton

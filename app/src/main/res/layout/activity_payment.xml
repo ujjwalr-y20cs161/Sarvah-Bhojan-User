@@ -82,6 +82,9 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_margin="@dimen/small_margin"
                     android:text="Add UPI"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="?attr/colorSurface"
                     android:drawableLeft="@drawable/add_variant"/>
 
 

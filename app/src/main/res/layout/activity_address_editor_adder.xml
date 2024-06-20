@@ -159,6 +159,7 @@
                 android:layout_gravity="center"
                 android:textColor="?attr/colorSurface"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:text="Save Location"
                 android:drawableLeft="@drawable/baseline_bookmark_24"
                 android:layout_margin="@dimen/small_margin"/>

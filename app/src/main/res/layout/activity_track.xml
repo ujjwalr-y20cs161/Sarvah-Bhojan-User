@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AddressPicker">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorSurfaceContainerHigh"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/TrackerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Track Your Order"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:textSize="@dimen/normal_text"
+                android:text="Here is your order!"
+                android:textAlignment="center"
+                android:layout_margin="@dimen/normal_text"
+                android:id="@+id/TrackerGuideText"/>
+
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:id="@+id/trackMap"
+                android:layout_margin="@dimen/small_margin"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:gravity="center"
+                    android:id="@+id/callTrack">
+
+                    <Button
+                        android:layout_margin="@dimen/small_margin"
+                        android:id="@+id/callDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/small_text"
+                        android:drawableLeft="@drawable/bike_variant"
+                        android:text="Call Delivery Agent"
+                        android:fontFamily="@font/montserrat"/>
+
+                    <Button
+                        android:layout_margin="@dimen/small_margin"
+                        android:id="@+id/callRestaurant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/small_text"
+                        android:drawableLeft="@drawable/fastfood_variant"
+                        android:text="Call Restaurant"
+                        android:fontFamily="@font/montserrat"/>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/large_margin"
+                android:layout_margin="@dimen/normal_margin"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
