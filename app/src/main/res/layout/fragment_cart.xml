@@ -155,6 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pay and Order"
+                android:textColor="?attr/colorSurface"
                 style="@style/Widget.Material3.Button"
                 android:drawableEnd="@drawable/chevron_variant"
                 android:layout_weight="1"

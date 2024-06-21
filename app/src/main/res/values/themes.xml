@@ -2,9 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodDeliveryUser" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="statusBarBackground">?attr/colorSurfaceContainerHigh</item>
-        <item name="statusBarForeground">?attr/colorOnSurface</item>
+        <item name="colorPrimary">@color/black</item>
     </style>
 
     <style name="rounded_corner">

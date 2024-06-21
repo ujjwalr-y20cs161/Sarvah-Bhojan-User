@@ -85,7 +85,7 @@
                     android:gravity="center"
                     android:fontFamily="@font/montserrat"
                     android:textColor="?attr/colorSurface"
-                    android:drawableLeft="@drawable/add_variant"/>
+                    android:drawableLeft="@drawable/add_sqaure"/>
 
 
 

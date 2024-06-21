@@ -121,9 +121,10 @@
                     android:text="Edit Info"
                     android:fontFamily="@font/montserrat"
                     android:textSize="@dimen/xs"
+                    android:textColor="?attr/colorSurface"
                     android:drawablePadding="@dimen/small_text"
                     android:layout_margin="@dimen/small_margin"
-                    android:drawableLeft="@drawable/edit_variant_20"/>
+                    android:drawableLeft="@drawable/baseline_fitbit_24"/>
 
                 <Button
                     style="@style/Widget.Material3.Button"

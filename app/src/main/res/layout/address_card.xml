@@ -50,12 +50,16 @@
 
         </LinearLayout>
 
-        <ImageButton
-            android:layout_width="@dimen/medium_image"
-            android:layout_height="@dimen/medium_image"
-            android:backgroundTint="@color/transparent0"
+        <Button
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:id="@+id/edit"
+            android:text="Edit"
+            android:textColor="?attr/colorControlNormal"
+            android:drawablePadding="@dimen/small_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
-            android:src="@drawable/baseline_edit_24" />
+            android:drawableLeft="@drawable/edit_variant" />
 
 
     </LinearLayout>
