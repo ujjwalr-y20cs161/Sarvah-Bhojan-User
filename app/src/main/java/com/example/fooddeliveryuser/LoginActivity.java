@@ -1,82 +1,86 @@
 package com.example.fooddeliveryuser;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.fooddeliveryuser.databinding.ActivityLoginBinding;
+import com.example.fooddeliveryuser.viewmodels.LoginViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextInputLayout usernameInputLayout;
-    private TextInputLayout passwordInputLayout;
-    private TextInputEditText editTextUsername;
-    private TextInputEditText editTextPassword;
-    private MaterialButton buttonLogin;
-    private Button buttonForgotPassword;
-    private MaterialButton buttonRegister;
-    private ImageView userImageView;
-    private TextView textViewLoginMessage;
 
+    ActivityLoginBinding binding;
+    LoginViewModel loginViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
-        // Initialize views
-        usernameInputLayout = findViewById(R.id.usernameInputLayout);
-        passwordInputLayout = findViewById(R.id.passwordInputLayout);
-        editTextUsername = findViewById(R.id.editTextUsername);
-        editTextPassword = findViewById(R.id.editTextPassword);
-        buttonLogin = findViewById(R.id.buttonLogin);
-        buttonForgotPassword = findViewById(R.id.buttonForgotPassword);
-        buttonRegister = findViewById(R.id.buttonRegister);
-        userImageView = findViewById(R.id.loginImageView);
-        textViewLoginMessage = findViewById(R.id.loginText);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        // Set onClickListener for buttons
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+//       Static Data
+        binding.loginText.setText(loginViewModel.getLoginText());
+
+//      Dynamic  Data
+
+        loginViewModel.getLoginCheck().observe(this, new Observer<String>() {
             @Override
-            public void onClick(View view) {
-                login();
+            public void onChanged(String s) {
+                switch (s){
+                    case "Pass":
+                        startActivity(new Intent(getApplicationContext(),AddressPicker.class));
+                        break;
+                    case "Fail":
+                        notifyHelpText("Wrong Credentials");
+                        break;
+                    default:
+                }
             }
         });
-        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                forgotPassword();
+
+
+//        OnClicks
+
+        binding.buttonForgotPassword.setOnClickListener(v->{
+            notifyHelpText("Check your email to reset the password.");
+        });
+
+
+        binding.buttonRegister.setOnClickListener(v->{
+
+            startActivity(new Intent(getApplicationContext(), Register.class));
+        });
+
+
+        binding.buttonLogin.setOnClickListener(v->{
+            if(!binding.editTextUsername.getEditableText().toString().isEmpty() && !binding.editTextPassword.getEditableText().toString().isEmpty()) {
+                loginViewModel.setUserCredentialText(binding.editTextUsername.getEditableText().toString());
+                loginViewModel.setUserPassword(binding.editTextPassword.getEditableText().toString());
+                loginViewModel.checkLogin();
+            }else{
+                notifyHelpText("Please fill the fields!");
             }
         });
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                register();
-            }
-        });
-    }
-
-    // Method to handle login action
-    private void login() {
-        String username = editTextUsername.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-
-        // Add your login logic here
-
 
     }
 
-    // Method to handle forgot password action
-    private void forgotPassword() {
-        // Add your forgot password logic here
+    private void notifyHelpText(String Message){
+        binding.helpText.setText(Message);
+        binding.helpText.setVisibility(View.VISIBLE);
     }
 
-    // Method to handle register action
-    private void register() {
-        // Add your register logic here
-        startActivity(new Intent(this, Register.class));
-    }
 }

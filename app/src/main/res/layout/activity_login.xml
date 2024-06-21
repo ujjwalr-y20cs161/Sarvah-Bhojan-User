@@ -147,6 +147,21 @@
             android:layout_margin="@dimen/small_margin"
             android:text="Forgot Password?" />
 
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:textColor="@color/quantum_googred"
+            android:drawablePadding="@dimen/normal_margin"
+            android:drawableLeft="@drawable/baseline_lightbulb_24"
+            android:text="Check your email to reset the password."/>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

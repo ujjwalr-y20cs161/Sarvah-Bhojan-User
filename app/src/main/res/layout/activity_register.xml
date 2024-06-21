@@ -194,8 +194,21 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:textColor="@color/quantum_googred"
+            android:drawablePadding="@dimen/normal_margin"
+            android:drawableLeft="@drawable/baseline_lightbulb_24"
+            android:text="Help Text"/>
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonCreate"
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
