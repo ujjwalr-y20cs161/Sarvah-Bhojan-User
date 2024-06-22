@@ -1,4 +1,4 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 import android.content.Intent;
 import android.os.Bundle;
 

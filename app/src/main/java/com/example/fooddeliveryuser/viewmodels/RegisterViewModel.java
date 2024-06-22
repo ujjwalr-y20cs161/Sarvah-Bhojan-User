@@ -15,8 +15,6 @@ public class RegisterViewModel extends ViewModel {
         registerCheck = "";
     }
 
-
-
     private void setRegisterCheck(String registerCheck) {
         this.registerCheck = registerCheck;
     }
@@ -29,8 +27,6 @@ public class RegisterViewModel extends ViewModel {
         this.passedRegister.setValue(passedRegister);
     }
 
-
-
     public String getRegisterCheck() {
         return registerCheck;
     }
@@ -42,29 +38,33 @@ public class RegisterViewModel extends ViewModel {
             setRegisterCheck("User Already Exists");
             setPassedRegister(false);
             Log.e("Register Log","User Already Exists");
-        }        //        if UserName doesn't meet requirement
+        }
+//              if UserName doesn't meet requirement
         else if (UserName.length() < 4) {
             setRegisterCheck("UserName Should be More than 4 Characters");
             setPassedRegister(false);
             Log.e("Register Log","UserName Should be More than 4 Characters");
         }
-//        if Phone Number is not valid
-        else if(PhoneNumber.length() < 10){
-            setRegisterCheck("Invalid Phone Number");
-            setPassedRegister(false);
-            Log.e("Register Log","Invalid Phone Number");
-        }
-        //        if Email Address is not valid
+
+        //              if Email Address is not valid
         else if(!EmailAddress.contains("@") || !EmailAddress.contains(".")){
-//             replace with a proper email checker
+//              replace with a proper email checker
             setRegisterCheck("Invalid Email Address");
             setPassedRegister(false);
             Log.e("Register Log","Invalid Email Address");
         }
 
-        //        if password does not meet requirements send warning
+//              if Phone Number is not valid
+        else if(PhoneNumber.length() < 10){
+            setRegisterCheck("Invalid Phone Number");
+            setPassedRegister(false);
+            Log.e("Register Log","Invalid Phone Number");
+        }
+
+//              if password does not meet requirements send warning
         else if(Password.length() < 8){
-            if(Password.equals("")){setRegisterCheck("Please enter the Password");
+            if(Password.equals("")){
+                setRegisterCheck("Please enter the Password");
                 setPassedRegister(false);
                 Log.e("Register Log", "Please enter the Password");}
             else {
@@ -75,7 +75,7 @@ public class RegisterViewModel extends ViewModel {
         }
         else{
             setPassedRegister(true);
+            Log.i("Register Log", "Registration Complete");
         }
     }
-
 }

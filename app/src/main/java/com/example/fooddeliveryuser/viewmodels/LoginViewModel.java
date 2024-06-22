@@ -21,11 +21,11 @@ public class LoginViewModel extends ViewModel {
 
 //    API call to authenticate the credential
     public void checkLogin(){
-        if(getUserCredentialText().equals("User101") && getUserPassword().equals("Pass123")){
+//        if(getUserCredentialText().equals("u101") && getUserPassword().equals("p123")){
             loginCheck.setValue("Pass");
-        }else{
-            loginCheck.setValue("Fail");
-        }
+//        }else{
+//            loginCheck.setValue("Fail");
+//        }
     }
 
     public String getLoginLabel() {

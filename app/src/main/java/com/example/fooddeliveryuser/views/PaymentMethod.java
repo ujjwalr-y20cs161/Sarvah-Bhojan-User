@@ -1,14 +1,16 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UserInfoScreen extends AppCompatActivity {
+import com.example.fooddeliveryuser.R;
+
+public class PaymentMethod extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info_screen);
+        setContentView(R.layout.activity_payment);
     }
 }

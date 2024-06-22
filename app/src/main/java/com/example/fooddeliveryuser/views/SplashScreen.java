@@ -1,10 +1,11 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.fooddeliveryuser.R;
 import com.example.fooddeliveryuser.databinding.ActivitySplashScreenBinding;
 
 public class SplashScreen extends AppCompatActivity {

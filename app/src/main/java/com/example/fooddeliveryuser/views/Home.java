@@ -1,20 +1,19 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import com.example.fooddeliveryuser.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.fooddeliveryuser.databinding.FragmentHomeBinding;
 
@@ -75,7 +74,7 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        Drawable drawable = AppCompatResources.getDrawable(getContext(),R.drawable.address_marker);
+        Drawable drawable = AppCompatResources.getDrawable(getContext(), R.drawable.address_marker);
 
 
         // Inflate the layout for this fragment

@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FoodDeliveryUser"
         tools:targetApi="31" >
         <activity
-            android:name=".SplashScreen"
+            android:name=".views.SplashScreen"
             android:exported="true"
            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
@@ -27,34 +27,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TrackActivity"
+            android:name=".views.TrackActivity"
             android:exported="false" />
         <activity
-            android:name=".Rating"
+            android:name=".views.Rating"
             android:exported="false" />
         <activity
-            android:name=".AddressEditorAdder"
+            android:name=".views.AddressEditorAdder"
             android:exported="false" />
         <activity
-            android:name=".UserInfoScreen"
+            android:name=".views.UserInfoScreen"
             android:exported="false" />
         <activity
-            android:name=".PaymentMethod"
+            android:name=".views.PaymentMethod"
             android:exported="false" />
         <activity
-            android:name=".RestaurantCatalogue"
+            android:name=".views.RestaurantCatalogue"
             android:exported="false" />
         <activity
-            android:name=".AddressPicker"
+            android:name=".views.AddressPicker"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".views.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".views.Register"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.LoginActivity"
             android:exported="true" >
         </activity>
 

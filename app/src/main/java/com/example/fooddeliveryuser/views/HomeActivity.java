@@ -1,4 +1,4 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.example.fooddeliveryuser.R;
 import com.example.fooddeliveryuser.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {

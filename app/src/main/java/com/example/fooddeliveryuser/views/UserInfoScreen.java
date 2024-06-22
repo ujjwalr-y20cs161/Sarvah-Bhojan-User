@@ -1,14 +1,16 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AddressEditorAdder extends AppCompatActivity {
+import com.example.fooddeliveryuser.R;
+
+public class UserInfoScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_address_editor_adder);
+        setContentView(R.layout.activity_user_info_screen);
     }
 }

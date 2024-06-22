@@ -1,8 +1,10 @@
-package com.example.fooddeliveryuser;
+package com.example.fooddeliveryuser.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.fooddeliveryuser.R;
 
 public class RestaurantCatalogue extends AppCompatActivity {
 

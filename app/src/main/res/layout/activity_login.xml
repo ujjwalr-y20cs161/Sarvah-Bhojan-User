@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".views.LoginActivity">
 
     <LinearLayout
         android:id="@+id/appBar"

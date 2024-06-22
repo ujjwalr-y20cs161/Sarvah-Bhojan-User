@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/colorSurface"
     android:gravity="center"
-    tools:context=".SplashScreen">
+    tools:context=".views.SplashScreen">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLoad"
