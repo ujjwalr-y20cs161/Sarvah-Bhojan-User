@@ -201,6 +201,7 @@
             android:layout_marginLeft="@dimen/normal_margin"
             android:layout_marginRight="@dimen/normal_margin"
             android:layout_marginTop="@dimen/small_margin"
+            android:visibility="gone"
             android:layout_marginBottom="@dimen/small_margin"
             android:textColor="@color/quantum_googred"
             android:drawablePadding="@dimen/normal_margin"
