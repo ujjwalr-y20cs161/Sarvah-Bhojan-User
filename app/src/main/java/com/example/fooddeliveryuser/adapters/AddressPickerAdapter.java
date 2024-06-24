@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fooddeliveryuser.R;
-import com.example.fooddeliveryuser.databases.ColorRandom;
 import com.example.fooddeliveryuser.models.Address;
 import com.google.android.material.imageview.ShapeableImageView;
 

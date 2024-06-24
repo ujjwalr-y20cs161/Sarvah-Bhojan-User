@@ -13,69 +13,21 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class  AddressRepo {
+public class AddressRepository {
     private AddressDAO addressDAO;
     private LiveData<List<Address>> allAddresses;
     private ExecutorService executorService;
 
-    public AddressRepo(Application application) {
+    public AddressRepository(Application application) {
         RoomDB db = RoomDB.getInstance(application);
         addressDAO = db.addressDAO();
         executorService = Executors.newSingleThreadExecutor();
 
-//        Address address1 = new Address(
-//                "User101",
-//                "Home",
-//                "123 Main St",
-//                "New York, NY",
-//                "10001",
-//                "John Doe",
-//                "555-1234",
-//                true
-//        );
-//
-//        // Example 2
-//        Address address2 = new Address(
-//                "User102",
-//                "Work",
-//                "456 Elm St",
-//                "Los Angeles, CA",
-//                "90001",
-//                "Jane Smith",
-//                "555-5678",
-//                false
-//        );
-//
-//        // Example 3
-//        Address address3 = new Address(
-//                "User103",
-//                "Gym",
-//                "789 Maple Ave",
-//                "Chicago, IL",
-//                "60601",
-//                "Alice Johnson",
-//                "555-9012",
-//                true
-//        );
-//
-//        // Example 4
-//        Address address4 = new Address(
-//                "User104",
-//                "Friend's House",
-//                "101 Oak St",
-//                "Houston, TX",
-//                "77001",
-//                "Bob Brown",
-//                "555-3456",
-//                false
-//        );
-//
-//        insertAllAddress(address1,address2,address3,address4);
-
     }
 
     public LiveData<List<Address>> getAllAddresses() {
-        return addressDAO.getAllAddress();
+        allAddresses = addressDAO.getAllAddress();
+        return allAddresses;
     }
 
     public LiveData<Address> getAddressById(int id) {
@@ -92,8 +44,7 @@ public class  AddressRepo {
 
     @NonNull
     public void insertAddress(Address address) {
-        Log.i("AddressRepo",address.getAddressLabel());
-//        address.setColor(ColorRandom.randomColor());
+        Log.i(this.getClass().getSimpleName(),"Insertion : "+address.getAddressLabel());
         executorService.execute(() -> {
             addressDAO.insertAddress(address);
         });
@@ -101,23 +52,24 @@ public class  AddressRepo {
 
     @NonNull
     public void insertAllAddress(Address... addresses){
-//        for (Address a:addresses) {
-//            a.setColor(ColorRandom.randomColor());
-//        }
+        Log.i(this.getClass().getSimpleName(),"Insertion : Multiple");
         executorService.execute(()->{
             addressDAO.insertAll(addresses);
         });
     }
 
     public void updateAddress(Address address) {
+        Log.i(this.getClass().getSimpleName(),"Updated : "+address.getAddressLabel());
         addressDAO.updateAddress(address);
     }
 
     public void deleteAddress(Address address) {
+        Log.i(this.getClass().getSimpleName(),"Deleted : "+address.getAddressLabel());
         executorService.execute(() -> addressDAO.deleteAddress(address));
     }
 
     public void updatePrimaryAddress(int addressId) {
+        Log.i(this.getClass().getSimpleName(),"Updated Primary Address : "+addressId);
         executorService.execute(() -> addressDAO.updatePrimaryAddress(addressId));
     }
 
@@ -126,6 +78,7 @@ public class  AddressRepo {
     }
 
     public void deleteAllAddress(){
+        Log.i(this.getClass().getSimpleName(),"Deleted : All");
         addressDAO.deleteAllAddress();
     }
 

@@ -58,6 +58,7 @@ public class AddressEditorAdder extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         viewModel.deleteAddress(addressReference);
+                        finish(); // Close the activity
                     }
                 })
                 .setNegativeButton("No", null)
@@ -66,7 +67,7 @@ public class AddressEditorAdder extends AppCompatActivity {
 
     private void populateUI(Address address) {
         if (address != null) {
-            binding.addressPickerLabel.setText(String.valueOf(address.getAddressId()));
+            binding.addressPickerLabel.setText("Address Editor");
             binding.Label.setText(address.getAddressLabel());
             binding.DoorNo.setText(address.getAddressLine());
             binding.city.setText(address.getCityState());
@@ -88,13 +89,6 @@ public class AddressEditorAdder extends AppCompatActivity {
 
         Address address = new Address("User101", label, doorNoStreet, cityState, pincode, receiverName, receiverPhone, isPrimary);
 
-        try {
-            Log.i(this.getClass().getSimpleName(),"Check : "+String.valueOf(addressReference != null)+" "+String.valueOf(viewModel.getReferenceAddress(addressReference.getAddressId()).getValue() != null));
-            Log.i(this.getClass().getSimpleName(),"Check viewModel: "+String.valueOf(addressReference.getAddressId()));
-            Log.i(this.getClass().getSimpleName(),"Check viewModel: "+String.valueOf(viewModel.getReferenceAddress(addressReference.getAddressId()).getValue().getAddressLabel()));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         if (addressReference != null) {
             address.setAddressId(addressReference.getAddressId());
             Log.i(this.getClass().getSimpleName(),"Updation of : "+String.valueOf(address.getAddressId()));

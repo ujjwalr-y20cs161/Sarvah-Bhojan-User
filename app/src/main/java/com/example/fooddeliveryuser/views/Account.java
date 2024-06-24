@@ -1,6 +1,10 @@
 package com.example.fooddeliveryuser.views;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.fooddeliveryuser.databinding.FragmentAccountBinding;
 import com.example.fooddeliveryuser.databinding.FragmentHomeBinding;
+import com.example.fooddeliveryuser.services.Tokens;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,9 @@ public class Account extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     FragmentAccountBinding binding;
 
@@ -55,6 +63,8 @@ public class Account extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences = getActivity().getSharedPreferences(Tokens.getSharedPrefName(), Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -88,9 +98,24 @@ public class Account extends Fragment {
 
 //         TODO: Log out Logic, Clear database
 
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Log Out")
+                    .setMessage("Are you sure you want to Log out of this Account?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
 
-            startActivity(new Intent(getContext(), LoginActivity.class));
-            getActivity().finish();
+                            editor.remove(Tokens.getLogged());
+                            editor.remove(Tokens.getKeyUsername());
+                            editor.remove(Tokens.getKeyPassword());
+                            editor.apply();
+                            startActivity(new Intent(getContext(), LoginActivity.class));
+                            getActivity().finish();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
+
         });
 
         binding.projectInfo.setOnClickListener(v-> {

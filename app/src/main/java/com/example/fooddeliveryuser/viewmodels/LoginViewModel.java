@@ -1,67 +1,69 @@
 package com.example.fooddeliveryuser.viewmodels;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class LoginViewModel extends ViewModel {
+import com.example.fooddeliveryuser.models.User;
+import com.example.fooddeliveryuser.repositories.UserRepository;
+import com.example.fooddeliveryuser.services.Tokens;
 
-    String loginLabel,loginText,userCredentialText,userPassword;
+import java.util.List;
 
-    private MutableLiveData<String> loginCheck;
 
-    public LoginViewModel() {
-
-        loginCheck = new MutableLiveData<>();
-        loginCheck.setValue("Not Yet");
-
-// API call maybe to fetch to change screen Label and guide text
-        setLoginText("Login to find out amazing cuisines !");
-
+public class LoginViewModel extends AndroidViewModel {
+    private UserRepository userRepository;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    public LoginViewModel(Application application) {
+        super(application);
+        userRepository = new UserRepository(application);
+        sharedPreferences = application.getSharedPreferences(Tokens.getSharedPrefName(), Context.MODE_PRIVATE);
     }
 
-//    API call to authenticate the credential
-    public void checkLogin(){
-//        if(getUserCredentialText().equals("u101") && getUserPassword().equals("p123")){
-            loginCheck.setValue("Pass");
-//        }else{
-//            loginCheck.setValue("Fail");
-//        }
+    public LiveData<User> getUserByName(String userCredential) {
+        return userRepository.getUserByName(userCredential);
     }
 
-    public String getLoginLabel() {
-        return loginLabel;
+    public LiveData<User> getUserByEmail(String userCredential) {
+        return userRepository.getUserByEmail(userCredential);
     }
 
-    public void setLoginLabel(String loginLabel) {
-        this.loginLabel = loginLabel;
+    public LiveData<User> getUserByPhoneNumber(String userCredential) {
+        return userRepository.getUserByPhoneNumber(userCredential);
     }
 
-    public String getLoginText() {
-        return loginText;
-    }
+    public boolean verify(String userCredential, String password) {
+        LiveData<User> userLiveData = userRepository.getUserByName(userCredential);
+        User user = userLiveData.getValue();
 
-    public void setLoginText(String loginText) {
-        this.loginText = loginText;
-    }
+        if (user == null) {
+            userLiveData = userRepository.getUserByEmail(userCredential);
+            user = userLiveData.getValue();
+        }
 
-    public String getUserCredentialText() {
-        return userCredentialText;
-    }
+        if (user == null) {
+            userLiveData = userRepository.getUserByPhoneNumber(userCredential);
+            user = userLiveData.getValue();
+        }
 
-    public void setUserCredentialText(String userCredentialText) {
-        this.userCredentialText = userCredentialText;
-    }
+        if (user != null && user.getPasswordHash().equals(password)) {
 
-    public String getUserPassword() {
-        return userPassword;
-    }
+            editor = sharedPreferences.edit();
+            editor.putString(Tokens.getKeyUsername(), user.getUserName());
+            editor.putString(Tokens.getKeyPassword(),user.getPasswordHash());
+            editor.putBoolean(Tokens.getLogged(),true);
+            editor.apply();
+            return true;
+        }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+        return false;
     }
-
-    public MutableLiveData<String> getLoginCheck() {
-        return loginCheck;
-    }
-
 }
+

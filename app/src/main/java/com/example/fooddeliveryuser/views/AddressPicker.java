@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -24,6 +25,10 @@ public class AddressPicker extends AppCompatActivity {
     private ActivityAddressPickerBinding binding;
     private AddressPickerViewModel viewModel;
     private AddressPickerAdapter adapter, allAddressAdapater;
+
+    private AddressPickerAdapter.OnItemClickListener editListener;
+
+    private Boolean isPrimaryAvailable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,38 +53,48 @@ public class AddressPicker extends AppCompatActivity {
         binding.AddressCatalouge.setLayoutManager(new LinearLayoutManager(this));
         binding.AddressCatalouge.setAdapter(allAddressAdapater);
 
+        editListener = new AddressPickerAdapter.OnItemClickListener() {
+            @Override
+            public void onEditClick(Address address) {
+                Intent intent = new Intent(getApplicationContext(), AddressEditorAdder.class);
+                intent.putExtra("address", address);
+                startActivity(intent);
+
+                // For now, just show a toast message
+                Toast.makeText(getApplicationContext(), "Edit " + address.getAddressLabel(), Toast.LENGTH_SHORT).show();
+            }
+        };
+
 
 //        Default Configurations:
+        isPrimaryAvailable = false;
 
 
         // Observe the primary address
         viewModel.getPrimaryAddress().observe(this, new Observer<Address>() {
             @Override
             public void onChanged(Address address) {
+
+
                 if (address != null) {
                     adapter = new AddressPickerAdapter(Collections.singletonList(address));
                     binding.currentAddress.setAdapter(adapter);
-                    adapter.setOnItemClickListener(new AddressPickerAdapter.OnItemClickListener() {
-                        @Override
-                        public void onEditClick(Address address) {
-                            Intent intent = new Intent(getApplicationContext(), AddressEditorAdder.class);
-                            intent.putExtra("address", address);
-                            startActivity(intent);
-
-                            // For now, just show a toast message
-                            Toast.makeText(getApplicationContext(), "Edit " + address.getAddressLabel(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+                    adapter.setOnItemClickListener(editListener);
                     binding.currentAddressLoad.setVisibility(View.GONE);
                     binding.currentAddress.setVisibility(View.VISIBLE);
                     binding.popUp.setVisibility(View.VISIBLE);
+                    isPrimaryAvailable = true;
+                    binding.BackButton.setEnabled(true);
                     binding.NoneSelected.setVisibility(View.GONE);
+
                 } else {
                     binding.currentAddress.setVisibility(View.GONE);
                     binding.currentAddressLoad.setVisibility(View.GONE);
                     binding.NoneSelected.setVisibility(View.VISIBLE);
                     binding.popUp.setVisibility(View.GONE);
+                    binding.BackButton.setEnabled(false);
+                    isPrimaryAvailable = false;
+
                 }
             }
         });
@@ -90,17 +105,7 @@ public class AddressPicker extends AppCompatActivity {
                 if(addresses != null){
                     allAddressAdapater = new AddressPickerAdapter(addresses);
                     binding.AddressCatalouge.setAdapter(allAddressAdapater);
-                    allAddressAdapater.setOnItemClickListener(new AddressPickerAdapter.OnItemClickListener() {
-                        @Override
-                        public void onEditClick(Address address) {
-                            Intent intent = new Intent(getApplicationContext(), AddressEditorAdder.class);
-                            intent.putExtra("address", address);
-                            startActivity(intent);
-
-                            // For now, just show a toast message
-                            Toast.makeText(getApplicationContext(), "Edit " + address.getAddressLabel(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    allAddressAdapater.setOnItemClickListener(editListener);
                     binding.NoCatalogue.setVisibility(View.GONE);
                     binding.AddressCatalouge.setVisibility(View.VISIBLE);
                     binding.AddressCatalougeLoad.setVisibility(View.GONE);
@@ -115,11 +120,11 @@ public class AddressPicker extends AppCompatActivity {
 
 
         // OnClickListeners
-        binding.BackButton.setOnClickListener(view -> onBack());
+        binding.BackButton.setOnClickListener(view -> onBackPressed());
         binding.addAddress.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), AddressEditorAdder.class)));
         binding.continueButton.setOnClickListener(v->{
             try {
-                Intent intent = new Intent(getApplicationContext(), UserInfoScreen.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 intent.putExtra("primary_address", viewModel.getPrimaryAddress().getValue());
                 startActivity(intent);
                 finish();
@@ -129,7 +134,11 @@ public class AddressPicker extends AppCompatActivity {
         });
     }
 
-    private void onBack() {
-        getOnBackPressedDispatcher().onBackPressed();
+    @Override
+    public void onBackPressed() {
+        if(isPrimaryAvailable) super.onBackPressed();
+        else{
+            Toast.makeText(getApplicationContext(),"Select a Primary Address",Toast.LENGTH_SHORT).show();
+        }
     }
 }

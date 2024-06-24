@@ -23,7 +23,9 @@ public class Register extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+        registerViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(RegisterViewModel.class);
 
         registerViewModel.getPassedRegister().observe(this, new Observer<Boolean>() {
             @Override

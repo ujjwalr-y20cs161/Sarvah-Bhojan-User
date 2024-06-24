@@ -9,15 +9,15 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.fooddeliveryuser.models.Address;
-import com.example.fooddeliveryuser.repositories.AddressRepo;
+import com.example.fooddeliveryuser.repositories.AddressRepository;
 
 public class AddressEditorViewModel extends AndroidViewModel {
-    private final AddressRepo addressRepo;
+    private final AddressRepository addressRepo;
     private final MutableLiveData<Address> referenceAddress = new MutableLiveData<>();
 
     public AddressEditorViewModel(@NonNull Application application) {
         super(application);
-        addressRepo = new AddressRepo(application);
+        addressRepo = new AddressRepository(application);
     }
 
     public LiveData<Address> getReferenceAddress(int addressId) {

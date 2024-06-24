@@ -30,7 +30,6 @@ public interface AddressDAO {
     @Query("DELETE FROM AddressTable")
     void deleteAllAddress();
 
-
     @Query("SELECT COUNT(*) FROM AddressTable")
     LiveData<Integer> getCount();
 
@@ -51,7 +50,6 @@ public interface AddressDAO {
 
     @Query("UPDATE AddressTable SET isPrimaryAddress = 1 WHERE AddressId = :addressId")
     void setPrimaryAddress(int addressId);
-
 
     @Transaction
     default void updatePrimaryAddress(int addressId) {

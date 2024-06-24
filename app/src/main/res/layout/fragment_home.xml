@@ -125,7 +125,7 @@
                             android:fontFamily="@font/montserrat_medium"
                             android:textSize="@dimen/medium_text"
                             android:layout_margin="@dimen/normal_margin"
-                            android:textColor="@color/material_dynamic_neutral60"
+                            android:textColor="?attr/colorControlNormal"
                             android:text="Restaurants Currently Unavailable"/>
                     </LinearLayout>
                     <!-- Search suggestions/results go here (ScrollView, RecyclerView, etc.). -->

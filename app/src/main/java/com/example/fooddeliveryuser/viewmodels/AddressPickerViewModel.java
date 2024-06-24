@@ -7,19 +7,21 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.fooddeliveryuser.models.Address;
-import com.example.fooddeliveryuser.repositories.AddressRepo;
+import com.example.fooddeliveryuser.repositories.AddressRepository;
 
 import java.util.List;
 
 public class AddressPickerViewModel extends AndroidViewModel {
 
-    private AddressRepo addressRepo;
+    private AddressRepository addressRepo;
     private LiveData<Address> primaryAddress;
     private LiveData<List<Address>> allAddresses;
 
+    private Boolean isPrimaryAvailable;
+
     public AddressPickerViewModel(@NonNull Application application) {
         super(application);
-        addressRepo = new AddressRepo(application);
+        addressRepo = new AddressRepository(application);
         primaryAddress = addressRepo.getPrimaryAddress();
         allAddresses = addressRepo.getAllAddresses();
     }
