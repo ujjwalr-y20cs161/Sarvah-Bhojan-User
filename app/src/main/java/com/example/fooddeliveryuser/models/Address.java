@@ -3,10 +3,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.fooddeliveryuser.databases.ColorRandom;
+
 import java.io.Serializable;
 
 @Entity(tableName = "AddressTable")
 public class Address implements Serializable {
+
+    private static int addressGen = 1000;
     @PrimaryKey
     @ColumnInfo(name = "AddressId") int AddressId;
 
@@ -30,11 +34,13 @@ public class Address implements Serializable {
 
     @ColumnInfo(name = "isPrimaryAddress") Boolean isPrimaryAddress;
 
+    private String color;
+
     public Address() {
     }
 
-    public Address(int addressId,String userId, String addressLabel, String doorNoStreet, String cityState, String pincode, String receiverName, String receiverPhoneNumber) {
-        this.AddressId = addressId;
+    public Address(String userId, String addressLabel, String doorNoStreet, String cityState, String pincode, String receiverName, String receiverPhoneNumber,Boolean isPrim) {
+        AddressId = getAddressGen();
         UserId =userId;
         AddressLabel = addressLabel;
         AddressLine = doorNoStreet;
@@ -42,12 +48,27 @@ public class Address implements Serializable {
         Pincode = pincode;
         ReceiverName = receiverName;
         ReceiverPhoneNumber = receiverPhoneNumber;
-        isPrimaryAddress = false;
+        isPrimaryAddress = isPrim;
+        Latitude = 0.0;
+        Longitude = 0.0;
+        color = ColorRandom.randomColor();
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public void setLocation(Double Lat, Double Long){
         setLatitude(Lat);
         setLongitude(Long);
+    }
+
+    private static int getAddressGen(){
+        return addressGen++;
     }
 
 

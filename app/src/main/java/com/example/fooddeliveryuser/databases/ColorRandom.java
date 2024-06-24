@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class ColorRandom {
 
-    private static List<String> colorRandom = new ArrayList<>(Arrays.asList(new String[]{"#32DBC6", "#141E61", "#FFD31D", "#F21170", "#40A798", "#FF2442"}));
+    private static List<String> colorRandom = new ArrayList<>(Arrays.asList(new String[]{"#32DBC6", "#141E61", "#FFD31D", "#F21170", "#40A798", "#FF2442","#91DDCF","#BEADFA"}));
 
     public static String randomColor(){
         Random random = new Random();

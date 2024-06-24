@@ -157,18 +157,55 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/normal_margin"/>
 
-
-            <Button
-                style="@style/Widget.Material3.Button"
-                android:id="@+id/pickLocation"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="?attr/colorSurface"
+            <TextView
+                android:id="@+id/helpText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:text="Save Location"
-                android:drawableLeft="@drawable/baseline_bookmark_24"
-                android:layout_margin="@dimen/small_margin"/>
+                android:textColor="@color/quantum_googred"
+                android:drawableLeft="@drawable/baseline_lightbulb_24"
+                android:textSize="@dimen/xs"
+                android:text="Help Text"
+                android:layout_margin="@dimen/small_margin"
+                android:drawablePadding="@dimen/small_text"
+                android:visibility="gone"
+                android:gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+
+                <Button
+                    style="@style/Widget.Material3.Button"
+                    android:id="@+id/deleteLocation"
+                    android:layout_width="wrap_content"
+                    android:textColor="?attr/colorSurface"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Delete"
+                    android:drawableLeft="@drawable/clear_variant"
+                    android:layout_margin="@dimen/small_margin"/>
+
+                <Button
+                    style="@style/Widget.Material3.Button"
+                    android:id="@+id/pickLocation"
+                    android:layout_width="wrap_content"
+                    android:textColor="?attr/colorSurface"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Save Location"
+                    android:drawableLeft="@drawable/baseline_bookmark_24"
+                    android:layout_margin="@dimen/small_margin"/>
+
+
+
+
+            </LinearLayout>
 
             <View
                 android:layout_width="wrap_content"

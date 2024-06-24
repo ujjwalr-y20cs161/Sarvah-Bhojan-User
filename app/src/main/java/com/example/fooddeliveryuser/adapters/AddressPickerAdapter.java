@@ -1,12 +1,12 @@
 package com.example.fooddeliveryuser.adapters;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,16 +14,24 @@ import com.example.fooddeliveryuser.R;
 import com.example.fooddeliveryuser.databases.ColorRandom;
 import com.example.fooddeliveryuser.models.Address;
 import com.google.android.material.imageview.ShapeableImageView;
+
 import java.util.List;
 
 public class AddressPickerAdapter extends RecyclerView.Adapter<AddressPickerAdapter.AddressViewHolder> {
 
     private List<Address> addressList;
-    private OnItemClickListener onItemClickListener;
+    private OnItemClickListener listener;
 
-    public AddressPickerAdapter(List<Address> addressList,OnItemClickListener onItemClickListener) {
+    public AddressPickerAdapter(List<Address> addressList) {
         this.addressList = addressList;
-        this.onItemClickListener = onItemClickListener;
+    }
+
+    public interface OnItemClickListener {
+        void onEditClick(Address address);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -36,43 +44,40 @@ public class AddressPickerAdapter extends RecyclerView.Adapter<AddressPickerAdap
 
     @Override
     public void onBindViewHolder(@NonNull AddressViewHolder holder, int position) {
-        Address address = addressList.get(position);
-        holder.addressLabel.setText(address.getAddressLabel());
-        holder.addressDetails.setText(address.getAddressLine() + ", " + address.getCityState() + ", " + address.getPincode());
-        holder.addressImage.setBackgroundColor(Color.parseColor(ColorRandom.randomColor()));
-        holder.editButton.setOnClickListener(v -> onItemClickListener.onEditClick(address));
+        Address currentAddress = addressList.get(position);
+        holder.addressLabel.setText(currentAddress.getAddressLabel());
+        holder.addressDetails.setText(currentAddress.getAddressLine() + ", " + currentAddress.getCityState() + " - " + currentAddress.getPincode());
+        try {
+            holder.addressImage.setBackgroundColor(Color.parseColor(currentAddress.getColor()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        // Set up the edit button click listener
+        holder.editButton.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onEditClick(currentAddress);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        if(addressList!=null) return addressList.size();
-        return 0;
+        return addressList != null ? addressList.size() : 0;
     }
 
+    static class AddressViewHolder extends RecyclerView.ViewHolder {
+        private TextView addressLabel;
+        private TextView addressDetails;
+        private Button editButton;
+        private ShapeableImageView addressImage;
 
-    public void setAddressList(List<Address> addressList) {
-            if(addressList != null) {
-                this.addressList = addressList;
-                notifyDataSetChanged();
-            }
-    }
-
-    public interface OnItemClickListener {
-        void onEditClick(Address address);
-    }
-
-    public static class AddressViewHolder extends RecyclerView.ViewHolder {
-        public TextView addressLabel;
-        public TextView addressDetails;
-        public ShapeableImageView addressImage;
-        public Button editButton;
-
-        public AddressViewHolder(View view) {
-            super(view);
-            addressLabel = view.findViewById(R.id.addressLabel);
-            addressDetails = view.findViewById(R.id.addressDetails);
-            addressImage = view.findViewById(R.id.addressImage);
-            editButton = view.findViewById(R.id.edit);
+        public AddressViewHolder(@NonNull View itemView) {
+            super(itemView);
+            addressLabel = itemView.findViewById(R.id.addressLabel);
+            addressDetails = itemView.findViewById(R.id.addressDetails);
+            editButton = itemView.findViewById(R.id.edit);
+            addressImage = itemView.findViewById(R.id.addressImage);
         }
     }
 }
