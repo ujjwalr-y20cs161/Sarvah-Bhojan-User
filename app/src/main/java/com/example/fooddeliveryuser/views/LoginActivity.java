@@ -39,15 +39,35 @@ public class LoginActivity extends AppCompatActivity {
             // Verify the user
             loginViewModel.getUserByName(username).observe(this, user -> {
                 if (user != null && user.getPasswordHash().equals(password)) {
+                    loginViewModel.setSharedPreferences(user.getUserName(),user.getPasswordHash());
                     startActivity(new Intent(getApplicationContext(), AddressPicker.class));
                     finish();
                 } else {
-                    notifyHelpText("Invalid username or password!");
+                    loginViewModel.getUserByEmail(username).observe(this, user1 -> {
+                        if (user1 != null && user1.getPasswordHash().equals(password)) {
+                            loginViewModel.setSharedPreferences(user1.getUserName(),user1.getPasswordHash());
+                            startActivity(new Intent(getApplicationContext(), AddressPicker.class));
+                            finish();
+                        } else {
+                            loginViewModel.getUserByPhoneNumber(username).observe(this, user2 -> {
+                                if (user2 != null && user2.getPasswordHash().equals(password)) {
+                                    loginViewModel.setSharedPreferences(user2.getUserName(),user2.getPasswordHash());
+                                    startActivity(new Intent(getApplicationContext(), AddressPicker.class));
+                                    finish();
+                                }else{
+                                    notifyHelpText("Enter valid User Credentials");
+                                }
+                            });
+                        }
+                    });
                 }
             });
+
+
         });
 
         binding.buttonForgotPassword.setOnClickListener(v -> {
+//          firebase call
             notifyHelpText("Check your email to reset the password.");
         });
 

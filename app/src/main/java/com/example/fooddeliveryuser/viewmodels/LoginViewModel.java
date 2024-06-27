@@ -6,8 +6,10 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
 import com.example.fooddeliveryuser.models.User;
@@ -21,9 +23,12 @@ public class LoginViewModel extends AndroidViewModel {
     private UserRepository userRepository;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+
+    private Application app;
     public LoginViewModel(Application application) {
         super(application);
         userRepository = new UserRepository(application);
+        app = application;
         sharedPreferences = application.getSharedPreferences(Tokens.getSharedPrefName(), Context.MODE_PRIVATE);
     }
 
@@ -39,31 +44,13 @@ public class LoginViewModel extends AndroidViewModel {
         return userRepository.getUserByPhoneNumber(userCredential);
     }
 
-    public boolean verify(String userCredential, String password) {
-        LiveData<User> userLiveData = userRepository.getUserByName(userCredential);
-        User user = userLiveData.getValue();
-
-        if (user == null) {
-            userLiveData = userRepository.getUserByEmail(userCredential);
-            user = userLiveData.getValue();
-        }
-
-        if (user == null) {
-            userLiveData = userRepository.getUserByPhoneNumber(userCredential);
-            user = userLiveData.getValue();
-        }
-
-        if (user != null && user.getPasswordHash().equals(password)) {
-
-            editor = sharedPreferences.edit();
-            editor.putString(Tokens.getKeyUsername(), user.getUserName());
-            editor.putString(Tokens.getKeyPassword(),user.getPasswordHash());
-            editor.putBoolean(Tokens.getLogged(),true);
-            editor.apply();
-            return true;
-        }
-
-        return false;
+    public void setSharedPreferences(String userName, String passwordHash){
+        editor = sharedPreferences.edit();
+        editor.putString(Tokens.getKeyUsername(),userName);
+        editor.putString(Tokens.getKeyPassword(),passwordHash);
+        editor.putBoolean(Tokens.getLogged(),true);
+        editor.apply();
     }
+
 }
 

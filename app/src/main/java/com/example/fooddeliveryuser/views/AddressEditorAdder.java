@@ -78,6 +78,12 @@ public class AddressEditorAdder extends AppCompatActivity {
         }
     }
 
+    private void notifyHelpText(String msg){
+        binding.helpText.setText(msg);
+        binding.helpText.setVisibility(View.VISIBLE);
+    }
+
+
     private void saveAddress() {
         String label = binding.Label.getText().toString();
         String doorNoStreet = binding.DoorNo.getText().toString();
@@ -87,17 +93,21 @@ public class AddressEditorAdder extends AppCompatActivity {
         String receiverPhone = binding.ReceiverPhone.getText().toString();
         boolean isPrimary = binding.primaryCheck.isChecked();
 
-        Address address = new Address("User101", label, doorNoStreet, cityState, pincode, receiverName, receiverPhone, isPrimary);
+        if(label.isEmpty() || doorNoStreet.isEmpty() || cityState.isEmpty() || pincode.isEmpty() || receiverName.isEmpty() || receiverPhone.isEmpty()){
+            notifyHelpText("Fill in the details");
+        }else {
+            Address address = new Address("User101", label, doorNoStreet, cityState, pincode, receiverName, receiverPhone, isPrimary);
 
-        if (addressReference != null) {
-            address.setAddressId(addressReference.getAddressId());
-            Log.i(this.getClass().getSimpleName(),"Updation of : "+String.valueOf(address.getAddressId()));
-            viewModel.updateAddress(address);
-        } else {
-            Log.i(this.getClass().getSimpleName(),"Saving of : "+String.valueOf(address.getAddressId()));
-            viewModel.saveAddress(address);
+            if (addressReference != null) {
+                address.setAddressId(addressReference.getAddressId());
+                Log.i(this.getClass().getSimpleName(), "Updation of : " + String.valueOf(address.getAddressId()));
+                viewModel.updateAddress(address);
+            } else {
+                Log.i(this.getClass().getSimpleName(), "Saving of : " + String.valueOf(address.getAddressId()));
+                viewModel.saveAddress(address);
+            }
+
+            finish(); // Close the activity
         }
-
-        finish(); // Close the activity
     }
 }
