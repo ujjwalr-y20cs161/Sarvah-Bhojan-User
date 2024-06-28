@@ -3,6 +3,7 @@ package com.example.fooddeliveryuser.repositories;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import com.example.fooddeliveryuser.dao.UserDAO;
 import com.example.fooddeliveryuser.databases.RoomDB;
@@ -53,13 +54,31 @@ public class UserRepository {
         executorService.execute(() -> userDAO.insertUser(user));
     }
 
+    @NonNull
+    public void deleteUser(String  userId,String userName) {
+        Log.i(getClass().getSimpleName(),"delete :" + userId);
+        executorService.execute(() ->{
+            User user = userDAO.getUserById(userId).getValue();
+            if(user == null) user = userDAO.getUserByName(userName).getValue();
+            if(user != null) userDAO.deleteUser(user);
+            else{
+                Log.e(getClass().getSimpleName(),"Unable to Fetch and Delete User : "+userId+" - "+userName);
+            }
+        });
+    }
+
     public void deleteUser(User user) {
-        Log.i(getClass().getSimpleName(),"InsertUser : "+user.getUserId());
-        executorService.execute(() -> userDAO.deleteUser(user));
+        Log.i(getClass().getSimpleName(), "delete :" + user.getUserId());
+        executorService.execute(() -> {
+            if (user != null) userDAO.deleteUser(user);
+            else {
+                Log.e(getClass().getSimpleName(), "Unable to Fetch and Delete User");
+            }
+        });
     }
 
     public void updateUser(User user) {
-        Log.i(getClass().getSimpleName(),"InsertUser : "+user.getUserId());
+        Log.i(getClass().getSimpleName(),"Updated :"+user.getUserId());
         executorService.execute(() -> userDAO.updateUser(user));
     }
 }

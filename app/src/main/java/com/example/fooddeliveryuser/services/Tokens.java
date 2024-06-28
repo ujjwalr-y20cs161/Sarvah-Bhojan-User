@@ -5,6 +5,8 @@ public class Tokens {
     private static final String KEY_USERNAME = "username";
     private static final String KEY_PASSWORD = "password";
 
+    private static final String KEY_USERID = "userid";
+
     private static final String LOGGED = "logged";
 
     public static String getSharedPrefName(){
@@ -22,5 +24,7 @@ public class Tokens {
     public static String getLogged(){
         return LOGGED;
     }
+
+    public static String getKeyUserid(){ return KEY_USERID;}
 
 }

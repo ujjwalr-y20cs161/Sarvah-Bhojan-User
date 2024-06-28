@@ -90,6 +90,7 @@ public class RegisterViewModel extends AndroidViewModel {
                 editor = sharedPreferences.edit();
                 editor.putString(Tokens.getKeyUsername(), user.getUserName());
                 editor.putString(Tokens.getKeyPassword(),user.getPasswordHash());
+                editor.putString(Tokens.getKeyUserid(),user.getUserId());
                 editor.putBoolean(Tokens.getLogged(),true);
                 editor.apply();
             }

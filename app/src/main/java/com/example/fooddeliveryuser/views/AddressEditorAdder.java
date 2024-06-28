@@ -2,8 +2,10 @@ package com.example.fooddeliveryuser.views;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,13 +15,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fooddeliveryuser.databinding.ActivityAddressEditorAdderBinding;
 import com.example.fooddeliveryuser.models.Address;
+import com.example.fooddeliveryuser.services.Tokens;
 import com.example.fooddeliveryuser.viewmodels.AddressEditorViewModel;
 
 public class AddressEditorAdder extends AppCompatActivity {
 
     private ActivityAddressEditorAdderBinding binding;
     private AddressEditorViewModel viewModel;
-
+    private SharedPreferences sharedPreferences;
     private Address addressReference;
 
     @Override
@@ -27,6 +30,8 @@ public class AddressEditorAdder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddressEditorAdderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        sharedPreferences = getSharedPreferences(Tokens.getSharedPrefName(), Context.MODE_PRIVATE);
 
         // ViewModel INIT
         viewModel = new ViewModelProvider(this).get(AddressEditorViewModel.class);
@@ -96,7 +101,8 @@ public class AddressEditorAdder extends AppCompatActivity {
         if(label.isEmpty() || doorNoStreet.isEmpty() || cityState.isEmpty() || pincode.isEmpty() || receiverName.isEmpty() || receiverPhone.isEmpty()){
             notifyHelpText("Fill in the details");
         }else {
-            Address address = new Address("User101", label, doorNoStreet, cityState, pincode, receiverName, receiverPhone, isPrimary);
+
+            Address address = new Address(sharedPreferences.getString(Tokens.getKeyUsername(),"User100"), label, doorNoStreet, cityState, pincode, receiverName, receiverPhone, isPrimary);
 
             if (addressReference != null) {
                 address.setAddressId(addressReference.getAddressId());

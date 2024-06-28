@@ -2,6 +2,7 @@ package com.example.fooddeliveryuser.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
@@ -80,8 +81,10 @@ public class AddressPicker extends AppCompatActivity {
                     adapter = new AddressPickerAdapter(Collections.singletonList(address));
                     binding.currentAddress.setAdapter(adapter);
                     adapter.setOnItemClickListener(editListener);
-                    binding.currentAddressLoad.setVisibility(View.GONE);
-                    binding.currentAddress.setVisibility(View.VISIBLE);
+                    binding.currentAddressLoad.setVisibility(View.VISIBLE);
+                    new Handler().postDelayed(()->{
+                        binding.currentAddressLoad.setVisibility(View.GONE);
+                        binding.currentAddress.setVisibility(View.VISIBLE);},1000);
                     binding.popUp.setVisibility(View.VISIBLE);
                     isPrimaryAvailable = true;
                     binding.BackButton.setEnabled(true);
@@ -102,17 +105,23 @@ public class AddressPicker extends AppCompatActivity {
         viewModel.getAllAddresses().observe(this, new Observer<List<Address>>() {
             @Override
             public void onChanged(List<Address> addresses) {
-                if(addresses != null){
+                if(!addresses.isEmpty()){
                     allAddressAdapater = new AddressPickerAdapter(addresses);
                     binding.AddressCatalouge.setAdapter(allAddressAdapater);
                     allAddressAdapater.setOnItemClickListener(editListener);
                     binding.NoCatalogue.setVisibility(View.GONE);
-                    binding.AddressCatalouge.setVisibility(View.VISIBLE);
-                    binding.AddressCatalougeLoad.setVisibility(View.GONE);
+                    binding.AddressCatalougeLoad.setVisibility(View.VISIBLE);
+                    new Handler().postDelayed(()->{
+                        binding.AddressCatalouge.setVisibility(View.VISIBLE);
+                        binding.AddressCatalougeLoad.setVisibility(View.GONE);
+                    },1000);
+
 
                 }else{
+                    binding.NoCatalogue.setVisibility(View.VISIBLE);
                     binding.AddressCatalouge.setVisibility(View.GONE);
                     binding.AddressCatalougeLoad.setVisibility(View.GONE);
+
                 }
             }
         });

@@ -1,5 +1,6 @@
 package com.example.fooddeliveryuser.views;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,10 +9,13 @@ import android.os.Bundle;
 
 import com.example.fooddeliveryuser.R;
 import com.example.fooddeliveryuser.services.Tokens;
+import com.example.fooddeliveryuser.viewmodels.HomeFragmentViewModel;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -40,6 +44,8 @@ public class Home extends Fragment {
     private ShimmerFrameLayout shimmerFrameLayout;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+
+    private HomeFragmentViewModel viewModel;
 
 
     public Home() {
@@ -80,6 +86,13 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
 
 
+//        View Model initiations
+        viewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()))
+                .get(HomeFragmentViewModel.class);
+
+
+
         Drawable drawable = AppCompatResources.getDrawable(getContext(), R.drawable.address_marker);
 
 
@@ -100,6 +113,13 @@ public class Home extends Fragment {
             public void onClick(View view) {
                 startActivity(new Intent(getContext(),AddressPicker.class));
             }
+        });
+
+        viewModel.getCurrentAddress().observe(getViewLifecycleOwner(),address -> {
+                if(address != null){
+                    binding.addressLabel.setText(address.getAddressLabel());
+                    binding.addressDetails.setText(address.getAddressLine()+" "+address.getCityState());
+                }
         });
 
 

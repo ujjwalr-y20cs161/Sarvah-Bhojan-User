@@ -36,9 +36,6 @@ public class AddressEditorViewModel extends AndroidViewModel {
 
     public void updateAddress(Address address) {
         addressRepo.updateAddress(address);
-        if (address.getIsPrimaryAddress()) {
-            addressRepo.updatePrimaryAddress(address.getAddressId());
-        }
     }
 
     public void deleteAddress(Address address){

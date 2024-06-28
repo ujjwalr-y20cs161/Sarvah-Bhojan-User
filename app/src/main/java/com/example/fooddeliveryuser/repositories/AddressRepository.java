@@ -47,6 +47,7 @@ public class AddressRepository {
         Log.i(this.getClass().getSimpleName(),"Insertion : "+address.getAddressLabel());
         executorService.execute(() -> {
             addressDAO.insertAddress(address);
+            if(address.getIsPrimaryAddress()) updatePrimaryAddress(address.getAddressId());
         });
     }
 
@@ -60,7 +61,10 @@ public class AddressRepository {
 
     public void updateAddress(Address address) {
         Log.i(this.getClass().getSimpleName(),"Updated : "+address.getAddressLabel());
-        addressDAO.updateAddress(address);
+        executorService.execute(() ->{
+            addressDAO.updateAddress(address);
+            if(address.getIsPrimaryAddress())updatePrimaryAddress(address.getAddressId());
+        });
     }
 
     public void deleteAddress(Address address) {

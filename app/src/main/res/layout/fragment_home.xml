@@ -19,7 +19,6 @@
             <LinearLayout
                 android:id="@+id/AdddressLayout"
                 android:layout_width="wrap_content"
-
                 android:padding="@dimen/small_margin"
                 android:background="@drawable/rounded_large"
                 android:layout_height="wrap_content"
@@ -41,19 +40,23 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_gravity="center"
                         android:id="@+id/addressLabel"
                         android:layout_width="wrap_content"
+                        android:maxWidth="@dimen/x_small_text_limiter"
                         android:layout_height="wrap_content"
                         android:text="Address Label"
-                        android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:textSize="@dimen/small_text"
                         android:fontFamily="@font/montserrat_semibold"
                         />
 
                     <TextView
                         android:id="@+id/addressDetails"
-                        android:layout_width="@dimen/small_text_limiter"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxWidth="@dimen/x_small_text_limiter"
                         android:text="Address Detail Label extension"
                         android:ellipsize="end"
                         android:maxLines="1"
@@ -61,8 +64,12 @@
                         android:fontFamily="@font/montserrat_medium"
                         />
                 </LinearLayout>
-
-
+                <ImageView
+                    android:id="@+id/down"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_margin="@dimen/small_margin"/>
 
             </LinearLayout>
 
@@ -71,11 +78,13 @@
 
             <TextView
                 android:id="@+id/userGreet"
-                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hi, Alex!"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/montserrat_light"
+                android:textAlignment="center"
                 android:textSize="@dimen/medium_text"
                 android:drawablePadding="@dimen/small_margin"
                 android:layout_gravity="center"

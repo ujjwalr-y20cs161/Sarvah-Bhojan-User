@@ -44,10 +44,12 @@ public class LoginViewModel extends AndroidViewModel {
         return userRepository.getUserByPhoneNumber(userCredential);
     }
 
-    public void setSharedPreferences(String userName, String passwordHash){
+    public void setSharedPreferences(String userId,String userName, String passwordHash){
+
         editor = sharedPreferences.edit();
         editor.putString(Tokens.getKeyUsername(),userName);
         editor.putString(Tokens.getKeyPassword(),passwordHash);
+        editor.putString(Tokens.getKeyUserid(),userId);
         editor.putBoolean(Tokens.getLogged(),true);
         editor.apply();
     }

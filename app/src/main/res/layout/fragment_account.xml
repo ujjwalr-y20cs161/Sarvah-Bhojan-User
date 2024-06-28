@@ -70,10 +70,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/hash"
+                            android:drawablePadding="@dimen/small_margin"
                             android:ellipsize="end"
+                            android:gravity="center_vertical"
                             android:fontFamily="@font/montserrat"
                             android:maxLines="1"
-                            android:text="#a10001"
+                            android:text="a10001"
                             android:textSize="@dimen/xs" />
                     </LinearLayout>
 
