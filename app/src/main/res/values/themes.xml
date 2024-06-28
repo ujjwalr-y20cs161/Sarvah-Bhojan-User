@@ -11,8 +11,8 @@
     </style>
 
     <style name="circle">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/large_text</item>
+        <item name="cornerFamily">cut</item>
+        <item name="cardCornerRadius">2dp</item>
     </style>
 
 

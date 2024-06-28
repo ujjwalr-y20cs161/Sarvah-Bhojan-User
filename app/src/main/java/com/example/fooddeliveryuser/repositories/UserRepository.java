@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 public class UserRepository {
 
     private UserDAO userDAO;
-    private LiveData<List<User>> allUsers;
+
     private ExecutorService executorService;
 
     public UserRepository(Application application) {

@@ -31,8 +31,9 @@ public class Register extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if(aBoolean){
-                    startActivity(new Intent(getApplicationContext(),AddressPicker.class));
-                    finish();
+                    Intent intent = new Intent(getApplicationContext(), AddressPicker.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 }else if(!registerViewModel.getRegisterCheck().equals("")){
                     notifyHelpText(registerViewModel.getRegisterCheck());
                 }

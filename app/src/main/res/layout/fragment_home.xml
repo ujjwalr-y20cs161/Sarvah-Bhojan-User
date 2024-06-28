@@ -96,6 +96,7 @@
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.search.SearchBar
@@ -109,8 +110,8 @@
                     android:id="@+id/search_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="@dimen/small_margin"
                     style="@style/Widget.Material3.SearchView"
-                    app:backgroundTint="?attr/colorSurface"
                     android:hint="Search your Favorite Restaurants"
                     app:layout_anchor="@id/search_bar">
 
@@ -138,6 +139,14 @@
                             android:text="Restaurants Currently Unavailable"/>
                     </LinearLayout>
                     <!-- Search suggestions/results go here (ScrollView, RecyclerView, etc.). -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/search_badge"
+                        android:background="@drawable/edittext"
+                        android:visibility="gone" />
+
 
                 </com.google.android.material.search.SearchView>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -173,29 +182,45 @@
                             layout="@layout/restaurant_load"/>
                         <include
                             layout="@layout/restaurant_load"/>
-                        <include
-                            layout="@layout/restaurant_load"/>
+
+                        <include layout="@layout/restaurant_load" />
+
                         <include
                             layout="@layout/restaurant_load"/>
                     </LinearLayout>
                 </com.facebook.shimmer.ShimmerFrameLayout>
 
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone"
-                        android:id="@+id/results">
+                        android:id="@+id/results"/>
 
-                        <include layout="@layout/restaurant_card" />
-
-                        <include layout="@layout/restaurant_card" />
-
-                        <include layout="@layout/restaurant_card" />
-
-                        <include layout="@layout/restaurant_card" />
-
-                    </LinearLayout>
+                <LinearLayout
+                    android:layout_margin="@dimen/normal_margin"
+                    android:id="@+id/noRestaurantCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/noRestaurantImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:src="@drawable/unavailable"/>
+                    <TextView
+                        android:id="@+id/noRestaurantText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textSize="@dimen/medium_text"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:textColor="?attr/colorControlNormal"
+                        android:text="Restaurants Currently Unavailable"/>
+                </LinearLayout>
 
             </LinearLayout>
 

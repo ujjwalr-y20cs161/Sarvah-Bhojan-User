@@ -1,38 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
+    android:id="@+id/resCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/normal_margin"
+    android:background="?selectableItemBackground"
     android:clickable="true"
-    android:layout_height="wrap_content">
+    android:orientation="horizontal">
+
 
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/restaurantImage"
-        android:layout_gravity="center"
         android:layout_width="@dimen/x_large_image"
         android:layout_height="@dimen/x_large_image"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
         android:layout_weight="1"
         app:shapeAppearanceOverlay="@style/rounded_corner"
-        android:layout_margin="@dimen/normal_margin"
-        app:srcCompat="@drawable/img"/>
+        app:srcCompat="@drawable/img" />
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
         android:layout_margin="@dimen/normal_margin"
+        android:layout_weight="5"
         android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/restaurantName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Restaurant Name"
             android:fontFamily="@font/montserrat_medium"
-            android:textSize="@dimen/small_text"/>
+            android:text="Restaurant Name"
+            android:textSize="@dimen/small_text" />
+
+
+
+
+
+
 
         <TextView
             android:id="@+id/restaurantAddress"
@@ -45,17 +56,18 @@
             android:text="Address Lane"
             android:textSize="@dimen/xs" />
 
+
+
         <TextView
             android:id="@+id/restaurantRating"
-            android:layout_marginTop="@dimen/small_margin"
             android:layout_width="@dimen/small_text_limiter"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
             android:drawableLeft="@drawable/star_rate"
             android:drawablePadding="@dimen/small_margin"
-            android:text="4.0"
             android:fontFamily="@font/montserrat_medium"
-            android:textSize="@dimen/xs"/>
-
+            android:text="4.0"
+            android:textSize="@dimen/xs" />
 
 
     </LinearLayout>
@@ -63,13 +75,21 @@
     <TextView
         android:id="@+id/restaurantDistance"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/normal_margin"
-        android:text="25Kms"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/small_placeholder"
+        android:minWidth="@dimen/small_placeholder"
+        android:layout_gravity="center"
+        android:textColor="@color/quantum_googgreen"
         android:fontFamily="@font/montserrat"
-        android:textSize="@dimen/xs"/>
+        android:padding="@dimen/x_small_text"
+        android:background="@drawable/edittext"
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="Cuisine"
+        android:textSize="@dimen/xs" />
+
+
 
 
 </LinearLayout>
