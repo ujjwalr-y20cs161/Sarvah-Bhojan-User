@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/rounded_large"
+    android:layout_margin="@dimen/small_margin"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/itemImage"
+            android:src="@drawable/food_bowl"
+            android:layout_width="@dimen/medium_image"
+            android:layout_height="@dimen/medium_image" />
+
+        <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/foodLabel"
+                android:layout_width="@dimen/small_text_limiter"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text"
+                android:fontFamily="@font/montserrat"
+                android:background="@color/quantum_grey"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/small_margin"
+                android:id="@+id/resautantDetails"
+                android:layout_width="@dimen/small_text_limiter"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat"
+                android:maxLines="1"
+                android:background="@color/quantum_grey"
+                android:textSize="@dimen/xs" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/vegMarker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/triangle_small_svgrepo_com"
+            android:backgroundTint="@color/quantum_grey"
+            android:layout_margin="@dimen/normal_margin"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="$$$"
+                android:textColor="@color/quantum_googgreen"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/addItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/quantum_grey"
+                android:textColor="?attr/colorSurface"/>
+            <Button
+                android:id="@+id/deleteItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:visibility="gone"
+                android:textColor="?attr/colorSurface"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+

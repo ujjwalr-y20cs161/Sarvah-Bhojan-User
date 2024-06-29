@@ -81,6 +81,7 @@ public class Account extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
 //         View Model init:
 
         viewModel = new ViewModelProvider(this,

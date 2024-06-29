@@ -21,7 +21,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        placeFragment(new Home());
+        if(getIntent().hasExtra("fragParameter")){
+            String param = getIntent().getStringExtra("fragParameter");
+            if(param.equals("Cart")){
+                placeFragment(new CartFragment());
+            }
+
+        }else{
+            placeFragment(new Home());
+        }
+
         binding.homeBottomMenu.setOnItemSelectedListener(item -> {
             switch (item.getTitle() + ""){
                 case "Home" : placeFragment(new Home());

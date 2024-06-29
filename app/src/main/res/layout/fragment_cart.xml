@@ -26,6 +26,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/billDetails"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/normal_margin"
                 android:layout_height="wrap_content"
@@ -203,36 +204,47 @@
 
 
                 <LinearLayout
+                    android:id="@+id/OrderItemsCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/OrderItemsCart">
+                    android:orientation="vertical">
 
                     <com.facebook.shimmer.ShimmerFrameLayout
                         android:layout_width="match_parent"
+                        android:id="@+id/cartLoad"
                         android:layout_height="wrap_content"
                         app:shimmer_auto_start="true">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                            <include layout="@layout/order_item_load"/>
-                            <include layout="@layout/order_item_load"/>
-                            <include layout="@layout/order_item_load"/>
+
+                            <include layout="@layout/order_item_load" />
+
+                            <include layout="@layout/order_item_load" />
+
+                            <include layout="@layout/order_item_load" />
 
                         </LinearLayout>
 
                     </com.facebook.shimmer.ShimmerFrameLayout>
 
-                    <include layout="@layout/order_item_cart"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cartResult"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/noItemsCartLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:layout_margin="@dimen/small_margin"
                     android:backgroundTint="?attr/colorSurfaceContainerHigh"
                     android:background="@drawable/add_minus_bg">

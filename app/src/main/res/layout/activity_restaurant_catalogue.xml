@@ -74,6 +74,8 @@
                         android:ellipsize="end"
                         android:layout_weight="3"
                         android:fontFamily="@font/montserrat"
+                        android:drawableLeft="@drawable/hash"
+                        android:drawablePadding="@dimen/small_margin"
                         android:maxLines="1"
                         android:text="#ROGL101"
                         android:textSize="@dimen/xs" />
@@ -99,15 +101,15 @@
                     android:id="@+id/restaurantAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/normal_margin"
-                    android:layout_marginTop="@dimen/small_margin"
-                    android:layout_marginRight="@dimen/normal_margin"
-                    android:layout_marginBottom="@dimen/small_margin"
+                    android:layout_margin="@dimen/normal_margin"
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat"
                     android:maxLines="1"
+                    android:drawableLeft="@drawable/baseline_location_on_24"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/small_margin"
                     android:text="Address Lines"
-                    android:textSize="@dimen/small_text" />
+                    android:textSize="@dimen/xs" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -236,40 +238,33 @@
 
 
             <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/foodCatalogueLoad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:shimmer_auto_start="true">
                 <LinearLayout
-                    android:id="@+id/foodCatalogueLoad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/small_margin"
                     android:orientation="vertical">
 
-                    <include layout="@layout/order_item_load" />
+                    <include layout="@layout/menu_item_load" />
 
-                    <include layout="@layout/order_item_load" />
+                    <include layout="@layout/menu_item_load" />
 
-                    <include layout="@layout/order_item_load" />
+                    <include layout="@layout/menu_item_load" />
 
-                    <include layout="@layout/order_item_load" />
+                    <include layout="@layout/menu_item_load" />
 
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>
 
-            <LinearLayout
-                android:id="@+id/foodCatalogue"
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_margin"
-                android:orientation="vertical">
-
-                <include layout="@layout/order_item_cart" />
-
-                <include layout="@layout/order_item_cart" />
-
-            </LinearLayout>
-
+                android:visibility="gone"
+                android:id="@+id/menuResult"/>
 
             <View
                 android:layout_width="match_parent"
@@ -282,6 +277,7 @@
     </ScrollView>
 
     <LinearLayout
+        android:id="@+id/goCart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/MainView"
@@ -303,6 +299,7 @@
             android:textSize="@dimen/small_text" />
 
         <Button
+            android:id="@+id/goCartButton"
             style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

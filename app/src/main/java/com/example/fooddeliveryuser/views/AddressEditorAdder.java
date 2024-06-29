@@ -42,7 +42,7 @@ public class AddressEditorAdder extends AppCompatActivity {
             addressReference = (Address) intent.getSerializableExtra("address");
             viewModel.setReferenceAddress(addressReference);
             binding.deleteLocation.setVisibility(View.VISIBLE);
-//            populateUI(addressReference);
+
         }
 
         // Click Listeners

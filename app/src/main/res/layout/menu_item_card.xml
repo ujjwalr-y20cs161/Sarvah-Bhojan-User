@@ -10,31 +10,32 @@
     <LinearLayout
         android:layout_margin="@dimen/normal_margin"
         android:layout_width="match_parent"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         >
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/itemImage"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"
             android:background="@drawable/cart_number"
-            android:layout_width="@dimen/large_image"
-            android:layout_height="@dimen/large_image"
+            android:layout_weight="1"
+            android:layout_width="@dimen/small_placeholder"
+            android:scaleType="centerCrop"
+            android:layout_height="@dimen/small_placeholder"
             app:shapeAppearanceOverlay="@style/rounded_corner"
             android:src="@drawable/food_bowl"/>
 
         <LinearLayout
+            android:layout_margin="@dimen/normal_margin"
             android:layout_width="wrap_content"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/normal_margin"
+
             android:orientation="vertical"
             android:gravity="start">
 
             <TextView
                 android:id="@+id/foodLabel"
-                android:layout_width="@dimen/small_text_limiter"
+                android:layout_width="@dimen/x_small_text_limiter"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text"
                 android:fontFamily="@font/montserrat"
@@ -45,7 +46,7 @@
             <TextView
                 android:id="@+id/resautantDetails"
                 android:layout_width="wrap_content"
-                android:maxWidth="@dimen/small_text_limiter"
+                android:maxWidth="@dimen/x_small_text_limiter"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:fontFamily="@font/montserrat"
@@ -56,39 +57,53 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_weight="1"
             android:id="@+id/vegMarker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/veg_tri"
+            android:layout_margin="@dimen/normal_margin"/>
 
         <LinearLayout
-            android:layout_weight="2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text"
+                android:text="50.00"
+                android:fontFamily="@font/montserrat_medium"
+                android:drawableLeft="@drawable/rupee18"
+                android:textAlignment="textStart"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/subtractMore"
+                    android:id="@+id/delete"
                     android:background="@drawable/add_minus_bg"
                     android:layout_width="wrap_content"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:padding="0dp"
                     android:fontFamily="@font/montserrat"
                     android:clickable="true"
                     android:src="@drawable/minus"
+                    android:foreground="?selectableItemBackground"
                     android:textSize="@dimen/medium_text"/>
 
                 <TextView
-                    android:id="@+id/itemCount"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/counter"
+                    android:layout_width="@dimen/small_image"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/small_image"
                     android:layout_margin="@dimen/small_margin"
                     android:background="@drawable/cart_number"
                     android:fontFamily="@font/montserrat"
@@ -98,30 +113,19 @@
                     android:textSize="@dimen/xs" />
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/addMore"
+                    android:id="@+id/add"
                     android:background="@drawable/add_minus_bg"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:foreground="?selectableItemBackground"
                     android:clickable="true"
                     android:src="@drawable/rounded_add"
                     android:padding="0dp"
                     android:fontFamily="@font/montserrat"
                     android:textSize="@dimen/medium_text"/>
-            </LinearLayout>
 
-            <TextView
-                android:layout_margin="@dimen/small_margin"
-                android:id="@+id/totalPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxWidth="@dimen/small_placeholder"
-                android:textSize="@dimen/small_text"
-                android:text="50.00"
-                android:background="@drawable/rounded_large"
-                android:backgroundTint="?attr/colorSurface"
-                android:textColor="@color/quantum_googgreen500"
-                android:fontFamily="@font/montserrat"
-                android:textAlignment="center"/>
+            </LinearLayout>
 
         </LinearLayout>
 
