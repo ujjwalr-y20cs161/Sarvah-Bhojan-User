@@ -17,7 +17,7 @@ Welcome to Sarvah Bhojan - Food for All, a user-friendly food delivery applicati
 
 Sarvah Bhojan is an initiative to ensure that everyone has access to good food. Whether you're at home or at work, our application makes it easy to order meals from your favorite restaurants and have them delivered right to your door, from the community kitchens of your very city made with love and care by our loving Self Help Groups. 
 
->> An Initiative of Ministry Of Housing and Urban Affairs, Government of India
+> An Initiative of Ministry Of Housing and Urban Affairs, Government of India
 
 ## Features
 
@@ -51,6 +51,7 @@ The application follows the Model-View-ViewModel (MVVM) architecture pattern, en
 - **Models**: Represent the data structure, including User, Address, Restaurant, Menu Item, Cart Item, Order, and Payment.
 - **ViewModels**: Handle the logic and prepare data for the UI.
 - **Views**: Activities and Fragments that display the data.
+- **LiveData** : To handle the data changes and reflect in UI.
 
 ## Database
 
@@ -81,6 +82,7 @@ To get started with Sarvah Bhojan:
 If you have any questions or need further assistance, please feel free to reach out:
 
 - **Email**: ujjwalrsanagapati@gmail.com 
+
 Thank you for being a part of Sarvah Bhojan - where food is for all!
 
 ---
